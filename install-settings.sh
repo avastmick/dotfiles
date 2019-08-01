@@ -2,7 +2,7 @@
 
 # Restore `.bashrc`
 cp $HOME/.my-settings/profile/.bashrc $HOME/.bashrc
-cp $HOME/.my-settings/profile/.bash_aliases $HOME/..bash_aliases
+cp $HOME/.my-settings/profile/.bash_aliases $HOME/.bash_aliases
 
 # Add the Vim init.vim to Spacevim
 # A hacky fix - sometime the SpaceVim install doesn't create a config dir, but leaves a file.
