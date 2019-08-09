@@ -2,7 +2,7 @@
     "globals" : 
     {
         "alwaysShowTabs" : false,
-        "defaultProfile" : "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
+        "defaultProfile" : "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
         "initialCols" : 120,
         "initialRows" : 30,
         "keybindings" : 
@@ -197,9 +197,10 @@
                 ]
             }
         ],
-        "requestedTheme" : "system",
+        "requestedTheme" : "dark",
         "showTabsInTitlebar" : false,
-        "showTerminalTitleInTitlebar" : false
+        "showTerminalTitleInTitlebar" : false,
+        "wordDelimiters" : " ./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}~?\u2502"
     },
     "profiles" : 
     [
@@ -223,9 +224,8 @@
         },
         {
             "acrylicOpacity" : 0.69999998807907104,
-            "background" : "#012456",
             "closeOnExit" : true,
-            "colorScheme" : "One Half Dark",
+            "colorScheme" : "Gruvbox Dark",
             "commandline" : "powershell.exe",
             "cursorColor" : "#FFFFFF",
             "cursorShape" : "bar",
