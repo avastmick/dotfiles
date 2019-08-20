@@ -32,8 +32,8 @@ mkdir $HOME/.vifm;
 cp -R $HOME/.my-settings/vifm/. $HOME/.vifm/.
 
 # Restore music player settings
-mkdir $HOME/.config/mpd
-cp $HOME/.my-settings/music/mpd/mpd.conf $HOME/.config/.
+mkdir $HOME/.mpd
+cp $HOME/.my-settings/music/mpd/mpd.conf $HOME/.mpd/.
 mkdir $HOME/.ncmpcpp
 cp $HOME/.my-settings/music/ncmpcpp/conf $HOME/.ncmpcpp/.
 

@@ -45,22 +45,22 @@ sudo apt update && sudo apt upgrade -y;
 # Install stuff - can't find etcher-electron mpa signal-desktop
 # removed brave-browser brave-keyring  
 # Move the pandoc stuff, removed pandoc pandoc-citeproc texlive texlive-fonts-extra texlive-xetex 
-sudo apt install ansible ccache chromium-browser cmake colordiff deluge  evolution-ews exuberant-ctags flatpak gnome-software-plugin-flatpak libssl-dev libx11-dev mpc mpd most mplayer mpv ncmpcpp neovim p7zip-full pass php powertop python3-pip qemu-user-static taskwarrior tlp tlp-rdw tmux uget vifm virtualbox virtualbox-ext-pack wdiff wireguard xclip xsltproc zathura -y;
+sudo apt install acpi ansible ccache chromium-browser cmake colordiff deluge  evolution-ews exuberant-ctags flatpak gnome-software-plugin-flatpak libssl-dev libx11-dev mpc mpd most mplayer mpv ncmpcpp neovim p7zip-full pass php powertop python3-pip qemu-user-static taskwarrior tlp tlp-rdw tmux uget vifm virtualbox virtualbox-ext-pack wdiff wireguard xclip xsltproc zathura -y;
 
 # The following need to be installed manually as the Debian / Ubuntu archives are too old...
 # 1. nnn
-curl -O https://github.com/jarun/nnn/releases/download/v2.3/nnn_2.3-1_ubuntu18.04.amd64.deb;
-sudo dpkg -i nnn_2.3-1_ubuntu18.04.amd64.deb;
-rm nnn_2.3-1_ubuntu18.04.amd64.deb; 
+curl -O https://github.com/jarun/nnn/releases/download/v2.6/nnn_2.6-1_ubuntu18.04.amd64.deb;
+sudo dpkg -i nnn_2.6-1_ubuntu18.04.amd64.deb;
+rm nnn_2.6-1_ubuntu18.04.amd64.deb; 
 
 ###############################################################################
 # Terminal / Commandline configuration
 ###############################################################################
 # Fonts - do first as the st-terminal requires it on compile
-git clone https://github.com/ryanoasis/nerd-fonts.git .fonts --depth=1;
-cd .fonts; 
-./install.sh FiraMono;
-cd ~;
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/FiraCode.zip;
+unzip FiraCode.zip -d $HOME/.local/share/fonts;
+rm FiraCode.zip;
+fc-cache -fv;
 # suckless st
 mkdir $HOME/.my-settings/build-area;
 git clone https://github.com/avastmick/st.git $HOME/.my-settings/build-area/st-term;
@@ -69,6 +69,9 @@ git remote set-url origin git@github.com:avastmick/st.git;
 cd $HOME;
 # Add in a prompt to show git status etc.
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+
+# Add in tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Configure git to print pretty git log trees
 git config --global alias.lg "log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
@@ -131,12 +134,13 @@ curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh;
 # ./emsdk activate sdk-incoming-64bit;
 
 # ASDF (languages package manager)
-git clone --branch v0.5.1 https://github.com/asdf-vm/asdf.git ~/.asdf;
+git clone --branch v0.7.4 https://github.com/asdf-vm/asdf.git ~/.asdf;
 . $HOME/.asdf/asdf.sh
 # Node JS (stable)
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git;
-asdf install nodejs 10.14.1;
-asdf global nodejs 10.14.1;
+bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring;
+asdf install nodejs 10.16.3;
+asdf global nodejs 10.16.3;
 
 # Java SDK - needed for the emscripten sdk
 asdf plugin-add java;
@@ -151,6 +155,13 @@ sudo apt update && sudo apt install yarn -y;
 # Install the JavaScript/Typescript langserver
 npm install -g javascript-typescript-langserver;
 
+# Install linuxbrew to allow for edge versions of packages
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)";
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv);
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv);
+test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile;
+echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile;
+
 ###############################################################################
 # Infrastructure Tools
 ###############################################################################
@@ -160,10 +171,10 @@ sh -c "$(curl -fsSL https://get.docker.com/)";
 sudo usermod -aG docker avastmick;
 
 # Terraform
-wget https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip;
-unzip terraform_0.11.10_linux_amd64.zip;
+wget https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.6_linux_amd64.zip;
+unzip terraform_0.12.6_linux_amd64.zip;
 sudo install terraform /usr/local/bin/;
-rm terraform_0.11.10_linux_amd64.zip;
+rm terraform && rm terraform_0.12.6_linux_amd64.zip;
 # Keybase
 curl -O https://prerelease.keybase.io/keybase_amd64.deb;
 sudo dpkg -i keybase_amd64.deb && sudo apt-get install -f && rm keybase_amd64.deb && run_keybase;
