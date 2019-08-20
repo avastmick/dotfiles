@@ -1,7 +1,10 @@
 #!/bin/bash
 ###############################################################################
 # Install script for Ubuntu
-#   TODO - idempotence
+#   FIXME 
+#        - idempotence: see "removed"
+#	 - fix the suckless st install deps and create a desktop icon
+#   TODO 
 #        - backup and import keyboard bindings
 #        - install st terminal (own config)
 ###############################################################################
@@ -11,36 +14,38 @@
 ###############################################################################
 # PPA and external sources
 ###############################################################################
-# Signal
-curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+# Signal - removed
+#curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list;
-# Etcher
-sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 379CE192D401AB61 && sudo sh -c "echo 'deb https://dl.bintray.com/resin-io/debian stable etcher' > /etc/apt/sources.list.d/resin-io-etcher.list";
-# Wireguard
-sudo add-apt-repository ppa:wireguard/wireguard;
+# Etcher - removed
+# sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 379CE192D401AB61 && sudo sh -c "echo 'deb https://dl.bintray.com/resin-io/debian stable etcher' > /etc/apt/sources.list.d/resin-io-etcher.list";
+# Wireguard - removed
+#sudo add-apt-repository ppa:wireguard/wireguard;
 # FIXME Shadowsocks (doesn't work)
 # Build from source?
 # echo "deb https://repo.debiancn.org/ testing main" | sudo tee /etc/apt/sources.list.d/debiancn.list;
 # wget https://repo.debiancn.org/pool/main/d/debiancn-keyring/debiancn-keyring_0~20161212_all.deb -O /tmp/debiancn-keyring.deb;
 # sudo apt install /tmp/debiancn-keyring.deb;
 # rm /tmp/debiancn-keyring.deb;
-# Brave browser
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -;
-source /etc/os-release;
-echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list;
+# Brave browser - remove
+#curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -;
+#source /etc/os-release;
+#echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list;
 
-# Ansible
-sudo apt-add-repository --yes --update ppa:ansible/ansible;
-# Install NeoVim from ppa as the Debian repo is very old
-sudo add-apt-repository ppa:neovim-ppa/stable;
+# Ansible - removed
+#sudo apt-add-repository --yes --update ppa:ansible/ansible;
+# Install NeoVim from ppa as the Debian repo is very old - removed
+#sudo add-apt-repository ppa:neovim-ppa/stable;
 ###############################################################################
 # Start the package installs
 ###############################################################################
 # Update
 sudo apt update && sudo apt upgrade -y;
 
-# Install stuff
-sudo apt install ansible ccache brave-browser brave-keyring chromium-browser cmake colordiff deluge etcher-electron evolution-ews exuberant-ctags flatpak gnome-software-plugin-flatpak libssl-dev mpc mpa mpd most mplayer mpv ncmpcpp neovim p7zip-full pandoc pandoc-citeproc pass php powertop python3-pip qemu-user-static signal-desktop taskwarrior texlive texlive-fonts-extra texlive-xetex tlp tlp-rdw tmux uget vifm virtualbox virtualbox-ext-pack wdiff wireguard xclip xsltproc zathura -y;
+# Install stuff - can't find etcher-electron mpa signal-desktop
+# removed brave-browser brave-keyring  
+# Move the pandoc stuff, removed pandoc pandoc-citeproc texlive texlive-fonts-extra texlive-xetex 
+sudo apt install ansible ccache chromium-browser cmake colordiff deluge  evolution-ews exuberant-ctags flatpak gnome-software-plugin-flatpak libssl-dev libx11-dev mpc mpd most mplayer mpv ncmpcpp neovim p7zip-full pass php powertop python3-pip qemu-user-static taskwarrior tlp tlp-rdw tmux uget vifm virtualbox virtualbox-ext-pack wdiff wireguard xclip xsltproc zathura -y;
 
 # The following need to be installed manually as the Debian / Ubuntu archives are too old...
 # 1. nnn
@@ -91,7 +96,7 @@ rustup completions bash >> $HOME/.bash_completion;
 rustup install nightly beta; 
 rustup component add rustfmt-preview rls-preview rust-analysis clippy-preview rust-src;
 # Install WASM targets
-rustup target add wasm32-unknown-unknown asmjs-unknown-emscripten wasm32-unknown-emscripten;
+rustup target add wasm32-unknown-unknown;
 # Install sccache for caching.
 cargo install sccache;
 # ctag handler for rls
