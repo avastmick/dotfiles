@@ -7,7 +7,7 @@
 # Set the execution policy for the user:
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser;
 # Install
-iex (new-object net.webclient).downloadstring('https://get.scoop.sh');
+Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.sh');
 # Install aria for multiple connections for downloads
 scoop install aria2;
 
@@ -23,7 +23,7 @@ scoop bucket add nerd-fonts;
 Start-Process powershell -Verb runAs "scoop install DejaVuSansMono";
 
 # Install general software used
-scoop install 7zip arduino etcher firefox fritzing git googlechrome hugo latex neovim pandoc signal transmission uget vscode whatsapp wsltty;
+scoop install 7zip arduino etcher firefox fritzing git googlechrome hugo latex make neovim pandoc shadowsocks signal transmission uget vscode whatsapp wsltty youtube-dl;
 
 
 

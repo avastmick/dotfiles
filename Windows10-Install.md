@@ -1,6 +1,10 @@
 # Windows 10 (Pro) Notes
 
-**TL;DR:** Just run `./windows10_install.ps1`, job done.
+**TL;DR:** Just run `./windows10_install.ps1`, job (largely) done.
+
+## Extra components
+
+There is no Scoop `json` for `Wireguard` as yet, so has to be manually installed. See the [Wireguard download page](https://www.wireguard.com/install/) for details.
 
 ## Extra Work
 
