@@ -14,16 +14,13 @@ scoop install aria2;
 # Add in the scoop-extras bucket
 scoop bucket add extras;
 
-# Add in Nerd Fonts bucket 
-scoop bucket add nerd-fonts;
-# Needs to be run as Administrator as it alters the registry
-#   NOTE: only DejaVuSansMono seems to work: 
-#       - FiraMono is not found
-#       - FiraCode does not display the icons
-Start-Process powershell -Verb runAs "scoop install DejaVuSansMono";
-
 # Install general software used
-scoop install 7zip arduino etcher firefox fritzing git googlechrome hugo latex make neovim pandoc shadowsocks signal transmission uget vscode whatsapp wsltty youtube-dl;
+scoop install 7zip arduino curl etcher firefox fritzing git googlechrome hugo latex make neovim pandoc shadowsocks signal sudo transmission ugeti unzip vscode which whatsapp wsltty youtube-dl;
 
-
+# Using Scoop - add in Nerd Fonts bucket 
+scoop bucket add nerd-fonts;
+# Needs to be run as Administrator as it alters the registry:
+#   Start-Process powershell -Verb runAs "scoop install FiraCode-NF";
+# We'll use sudo - may not show up in application lists as a selectable font
+sudo scoop install DejaVuSansMono-NF FiraCode-NF;
 
