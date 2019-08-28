@@ -15,12 +15,12 @@ scoop install aria2;
 scoop bucket add extras;
 
 # Install general software used
-scoop install 7zip arduino curl etcher firefox fritzing git googlechrome hugo latex make neovim pandoc shadowsocks signal sudo transmission ugeti unzip vscode which whatsapp wsltty youtube-dl;
+scoop install 7zip alacritty arduino curl etcher firefox fritzing git googlechrome hugo latex make neovim pandoc shadowsocks signal sudo transmission uget unzip vcredist2017 vscode which whatsapp youtube-dl;
 
 # Using Scoop - add in Nerd Fonts bucket 
 scoop bucket add nerd-fonts;
 # Needs to be run as Administrator as it alters the registry:
 #   Start-Process powershell -Verb runAs "scoop install FiraCode-NF";
-# We'll use sudo - may not show up in application lists as a selectable font
+# We'll use sudo - font may not show up in application lists as a selectable
 sudo scoop install DejaVuSansMono-NF FiraCode-NF;
 
