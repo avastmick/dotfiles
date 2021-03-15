@@ -14,11 +14,11 @@ cp $HOME/.tmux.conf tmux/.tmux.conf
 cp -r $HOME/.vifm/. vifm/.
 
 # Back up music config
-cp $HOME/.config/mpd/mpd.conf $HOME/.my-settings/music/mpd/mpd.conf
-cp $HOME/.ncmpcpp/config $HOME/.my-settings/music/ncmpcpp/conf
+# cp $HOME/.config/mpd/mpd.conf $HOME/.my-settings/music/mpd/mpd.conf
+# cp $HOME/.ncmpcpp/config $HOME/.my-settings/music/ncmpcpp/conf
 
 # Back up taskwarrior
-cp $HOME/.taskrc $HOME/.my-settings/taskwarrior/.taskrc
+# cp $HOME/.taskrc $HOME/.my-settings/taskwarrior/.taskrc
 
 # Back up `spacevim` custom settings
 cp -r $HOME/.SpaceVim.d ./vim

@@ -16,7 +16,7 @@
 ###############################################################################
 # Signal - removed
 #curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
-echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list;
+#echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list;
 # Etcher - removed
 # sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 379CE192D401AB61 && sudo sh -c "echo 'deb https://dl.bintray.com/resin-io/debian stable etcher' > /etc/apt/sources.list.d/resin-io-etcher.list";
 # Wireguard - removed
@@ -45,13 +45,13 @@ sudo apt update && sudo apt upgrade -y;
 # Install stuff - can't find etcher-electron mpa signal-desktop
 # removed brave-browser brave-keyring  
 # Move the pandoc stuff, removed pandoc pandoc-citeproc texlive texlive-fonts-extra texlive-xetex 
-sudo apt install acpi ansible ccache chromium-browser cmake colordiff deluge  evolution-ews exuberant-ctags flatpak gnome-software-plugin-flatpak libssl-dev libx11-dev mpc mpd most mplayer mpv ncmpcpp neovim p7zip-full pass php powertop python3-pip qemu-user-static taskwarrior tlp tlp-rdw tmux uget vifm virtualbox virtualbox-ext-pack wdiff wireguard xclip xsltproc zathura -y;
+sudo apt install acpi ansible ccache chromium-browser cmake colordiff deluge  evolution-ews exuberant-ctags jq libssl-dev libx11-dev mpc mpd most mplayer mpv ncmpcpp neovim p7zip-full pass php powertop python3-pip qemu-user-static taskwarrior tlp tlp-rdw tmux uget vifm virtualbox virtualbox-ext-pack wdiff wireguard xclip xsltproc zathura -y;
 
 # The following need to be installed manually as the Debian / Ubuntu archives are too old...
 # 1. nnn
-curl -O https://github.com/jarun/nnn/releases/download/v2.6/nnn_2.6-1_ubuntu18.04.amd64.deb;
-sudo dpkg -i nnn_2.6-1_ubuntu18.04.amd64.deb;
-rm nnn_2.6-1_ubuntu18.04.amd64.deb; 
+#curl -O https://github.com/jarun/nnn/releases/download/v2.6/nnn_2.6-1_ubuntu18.04.amd64.deb;
+#sudo dpkg -i nnn_2.6-1_ubuntu18.04.amd64.deb;
+#rm nnn_2.6-1_ubuntu18.04.amd64.deb; 
 
 ###############################################################################
 # Terminal / Commandline configuration
@@ -97,7 +97,7 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y;
 source $HOME/.cargo/env;
 rustup completions bash >> $HOME/.bash_completion;
 rustup install nightly beta; 
-rustup component add rustfmt-preview rls-preview rust-analysis clippy-preview rust-src;
+rustup component add rustfmt rls rust-analysis clippy rust-src;
 # Install WASM targets
 rustup target add wasm32-unknown-unknown;
 # Install sccache for caching.
@@ -121,10 +121,10 @@ cargo install cargo-generate;
 sudo apt install postgresql postgresql-contrib postgresql-client libpq-dev;
 cargo install diesel_cli --no-default-features --features postgres;
 # Debugging - LLDB
-sudo apt install lldb-6.0 rust-lldb python-lldb-6.0 liblldb-6.0;
+#sudo apt install lldb-6.0 rust-lldb python-lldb-6.0 liblldb-6.0;
 
 # WASM - wasm-pack
-curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh;
+#curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh;
 
 # WASM - emscripten sdk - OFF for now
 # curl https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz | tar -zxv -C ~/;
@@ -134,18 +134,15 @@ curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh;
 # ./emsdk activate sdk-incoming-64bit;
 
 # ASDF (languages package manager)
-git clone --branch v0.7.4 https://github.com/asdf-vm/asdf.git ~/.asdf;
-. $HOME/.asdf/asdf.sh
-# Node JS (stable)
-asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git;
-bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring;
-asdf install nodejs 10.16.3;
-asdf global nodejs 10.16.3;
-
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0;
+asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git.js;
+bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring';
+asdf install nodejs 14.15.4;
+asdf global nodejs 14.15.4;
 # Java SDK - needed for the emscripten sdk
-asdf plugin-add java;
-asdf install java openjdk-11.0.1;
-asdf global java openjdk-11.0.1;
+#asdf plugin-add java;
+#asdf install java openjdk-11.0.1;
+#asdf global java openjdk-11.0.1;
 
 # Yarn (better npm)
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -;
@@ -171,13 +168,13 @@ sh -c "$(curl -fsSL https://get.docker.com/)";
 sudo usermod -aG docker avastmick;
 
 # Terraform
-wget https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.6_linux_amd64.zip;
-unzip terraform_0.12.6_linux_amd64.zip;
-sudo install terraform /usr/local/bin/;
-rm terraform && rm terraform_0.12.6_linux_amd64.zip;
+#wget https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.6_linux_amd64.zip;
+#unzip terraform_0.12.6_linux_amd64.zip;
+#sudo install terraform /usr/local/bin/;
+#rm terraform && rm terraform_0.12.6_linux_amd64.zip;
 # Keybase
-curl -O https://prerelease.keybase.io/keybase_amd64.deb;
-sudo dpkg -i keybase_amd64.deb && sudo apt-get install -f && rm keybase_amd64.deb && run_keybase;
+#curl -O https://prerelease.keybase.io/keybase_amd64.deb;
+#sudo dpkg -i keybase_amd64.deb && sudo apt-get install -f && rm keybase_amd64.deb && run_keybase;
 # Krypt.co kr
 sh -c "$(curl -fsSL  https://krypt.co/kr/)";
 

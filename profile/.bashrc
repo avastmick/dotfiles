@@ -72,7 +72,5 @@ export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
 # Completions
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
-# asdf settings for Java
-. $HOME/.asdf/plugins/java/asdf-java-wrapper.bash
 
 # Added by Krypton
