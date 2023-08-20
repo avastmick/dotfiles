@@ -40,6 +40,8 @@ fi
 # Make sure we’re using the latest Homebrew.
 brew update
 
+# Install the latest version of bash
+brew install bash
 
 # Install Node & Global Packages
 echo "Installing Node..."
