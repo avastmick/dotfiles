@@ -13,7 +13,9 @@ export EDITOR='vim'
 # Set a consistent TERM (tmux vs vim)
 export TERM="xterm-256color"
 # make sure man is pretty and readable
-export PAGER="/usr/bin/most -s"
+export PAGER="/opt/homebrew/bin/most -s"
+# Homebrew
+export PATH=/opt/homebrew/opt/openssh/bin:/opt/homebrew/opt/openssh/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 
 # Configure the prompt.
 # Goal: simple, so:
@@ -21,7 +23,11 @@ export PAGER="/usr/bin/most -s"
 # set a fancy prompt (non-color, unless we know we "want" color)
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\w\[\033[00m\]\$ '
 GIT_PROMPT_ONLY_IN_REPO=1
-source ~/.bash-git-prompt/gitprompt.sh
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  GIT_PROMPT_ONLY_IN_REPO=1
+  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi
 
 ###############################################################################
 # aliases
@@ -34,7 +40,7 @@ source ~/.bash-git-prompt/gitprompt.sh
 if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
-# FIXME this throws an error at login...
+# Filterable history
 if [[ "$-" =~ "i" ]]; then
   bind '"\e[A": history-search-backward'
   bind '"\e[B": history-search-forward'
@@ -42,35 +48,3 @@ if [[ "$-" =~ "i" ]]; then
   bind '"\eOB": history-search-forward'
 fi
 
-###############################################################################
-# File manager configuration - `nnn`
-###############################################################################
-# nnn cd on exit
-export NNN_TMPFILE="/tmp/nnn"
-# nnn copy - TODO doesn't work!
-export NNN_COPIER='$HOME/.my-settings/scripts/nnn-copy.sh'
-n()
-{
-   nnn "$@"
-   if [ -f $NNN_TMPFILE ]; then
-     . $NNN_TMPFILE
-     rm $NNN_TMPFILE
-   fi
-}
-
-###############################################################################
-# Rust
-###############################################################################
-source $HOME/.cargo/env
-export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
-# export RUSTC_WRAPPER=sccache
-
-###############################################################################
-###############################################################################
-# API tokens (local only!)
-
-# Completions
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-
-# Added by Krypton

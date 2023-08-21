@@ -8,16 +8,11 @@
 ###############################################################################
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias fm='/usr/bin/vifm'
 alias grep='grep --color=auto'
 alias la='ls -A'
 alias l='ls -CF'
 alias ll='ls -alF'
-alias ls='ls -hN --color=auto --group-directories-first'
-alias music='/usr/bin/ncmpcpp'
-alias signal='$HOME/.my-settings/build-area/scli/scli'
-
-command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
+alias ls='ls -h --color=auto'
 
 ###############################################################################
 # Git aliases
