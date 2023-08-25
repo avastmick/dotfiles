@@ -16,6 +16,8 @@ export TERM="xterm-256color"
 export PAGER="/opt/homebrew/bin/most -s"
 # Homebrew
 export PATH=/opt/homebrew/opt/openssh/bin:/opt/homebrew/opt/openssh/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+# Secretive SSH Agent
+export SSH_AUTH_SOCK=/Users/avastmick/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
 # Configure the prompt.
 # Goal: simple, so:
