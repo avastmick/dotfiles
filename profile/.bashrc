@@ -15,7 +15,7 @@ export TERM="xterm-256color"
 # make sure man is pretty and readable
 export PAGER="/opt/homebrew/bin/most -s"
 # Homebrew
-export PATH=/opt/homebrew/opt/openssh/bin:/opt/homebrew/opt/openssh/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+export PATH="/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/openssh/bin"
 # Secretive SSH Agent
 export SSH_AUTH_SOCK=/Users/avastmick/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
@@ -50,3 +50,4 @@ if [[ "$-" =~ "i" ]]; then
   bind '"\eOB": history-search-forward'
 fi
 
+. "$HOME/.cargo/env"

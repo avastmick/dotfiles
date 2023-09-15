@@ -1,3 +1,4 @@
 /build-area
 /vifm/vifminfo
 *.code-workspace
+.DS_Store
