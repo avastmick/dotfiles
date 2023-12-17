@@ -5,9 +5,6 @@
 # Ask for the administrator password upfront
 sudo -v
 
-# Revert to using bash
-chsh -s /bin/bash
-
 echo "------------------------------"
 echo "Initializing Development Workspace [×]"
 
@@ -39,7 +36,10 @@ cp ./profile/.bash_profile $HOME/.bash_profile
 cp ./profile/.profile $HOME/.profile
 cp ./profile/.bash_aliases $HOME/.bash_aliases
 
-# Copy over iTerm2 profile
+# Revert to using bash
+chsh -s /bin/bash
+
+# Copy over iTerm2 profile (Currently doesn't work)
 cp ./macos/Default.json $HOME/.config/iterm2/AppSupport/DynamicProfiles/Default.json
 
 # Set OS Defaults
