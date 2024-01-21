@@ -8,11 +8,6 @@
 ###############################################################################
 shopt -s autocd #Allows you to cd into directory merely by typing the directory name.
 HISTSIZE= HISTFILESIZE= # Infinite history.
-# Set for atuin
-export ATUIN_NOBIND="true"
-eval "$(atuin init bash)"
-# bind to ctrl-r, add any other bindings you want here too
-bind -x '"\C-r": __atuin_history'
 
 # Set the system editor
 export EDITOR='vim'
@@ -57,8 +52,13 @@ if [[ "$-" =~ "i" ]]; then
 fi
 
 . "$HOME/.cargo/env"
-# export RUSTC_WRAPPER=sccache
+export RUSTC_WRAPPER=sccache
 export PATH=$PATH:/Users/avastmick/.git-semantic-commits:$PATH
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+source ~/.local/share/blesh/ble.sh
+# Set for atuin
+export ATUIN_NOBIND="true"
 eval "$(atuin init bash)"
+# bind to ctrl-r, add any other bindings you want here too
+bind -x '"\C-r": __atuin_history'
