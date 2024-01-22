@@ -766,8 +766,8 @@ $env.config = {
 #######################################################
 # Atuin integration
 source ~/.local/share/atuin/init.nu
-# Git prompt
-use ~/.cache/starship/init.nu
+# Pretty prompt
+source ~/.cache/starship/init.nu
 
 ###############################################################################
 #
@@ -786,7 +786,7 @@ alias ll = ls -al
 ###############################################################################
 alias g = git
 
-alias ga = git add
+alias ga = git add .
 alias gaa = git add --all
 alias gapa = git add --patch
 alias gau = git add --update

@@ -118,9 +118,12 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend "/opt/homebrew/bin")
 # Cargo crate cacheing
 $env.RUSTC_WRAPPER = "sccache"
 # Git Semantic Commits
-$env.PATH = ($env.PATH | split row (char esep) | "/Users/avastmick/.git-semantic-commits")
+$env.PATH = ($env.PATH | split row (char esep) | prepend "/Users/avastmick/.git-semantic-commits")
 # Secretive SSH Agent
 $env.SSH_AUTH_SOCK = "/Users/avastmick/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
+
 # Commandline config via Starship
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
+
+
