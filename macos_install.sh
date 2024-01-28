@@ -11,7 +11,7 @@ echo "Initializing Development Workspace [×]"
 # Install Xcode Tools (Git)
 if test ! $(xcode-select --version); then
   echo "Installing Xcode Command Line Tools..."
-  xcode-select --install 
+  xcode-select --install
 fi
 
 # Install Homebrew if we don't have it
@@ -30,17 +30,17 @@ if test ! $(which rustc); then
   rustup-init
 fi
 
-# Copy over bashrc etc
-cp ./profile/.bashrc $HOME/.bashrc
-cp ./profile/.bash_profile $HOME/.bash_profile
-cp ./profile/.profile $HOME/.profile
-cp ./profile/.bash_aliases $HOME/.bash_aliases
+# Copy over config, etc.
+cp -R .config/* ~/.config/.
+cp tmux/.tmux.conf ~/.tmux.conf
 
-# Revert to using bash
-chsh -s /bin/bash
+# Copy over nushell env and config
+cp nushell/env.nu ~/Library/Application Support/nushell/env.nu
+cp nushell/config.nu ~/Library/Application Support/nushell/config.nu
 
-# Copy over iTerm2 profile (Currently doesn't work)
-cp ./macos/Default.json $HOME/.config/iterm2/AppSupport/DynamicProfiles/Default.json
+# Change shell to nushell
+chsh -s /opt/homebrew/bin/nu
+
 
 # Set OS Defaults
 echo "Setting OS Defaults..."
@@ -48,6 +48,10 @@ echo "Setting OS Defaults..."
 defaults write com.apple.finder AppleShowAllFiles -bool true
 # Disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+# Improve alacritty font rendering
+defaults write org.alacritty AppleFontSmoothing -int 0
+# Ditto for zed
+defaults write dev.zed AppleFontSmoothing -int 0
 
 echo "Ready [✔]"
 echo "------------------------------"
