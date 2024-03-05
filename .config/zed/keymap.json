@@ -2,5 +2,12 @@
   {
     "context": "Workspace",
     "bindings": {}
+  },
+  // ------------- Custom Vim Mode Keybindings -------------
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      "j k": "vim::NormalBefore" // remap jk in insert mode to escape.
+    }
   }
 ]

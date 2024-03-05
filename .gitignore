@@ -2,3 +2,8 @@
 /vifm/vifminfo
 *.code-workspace
 .DS_Store
+
+/.config/zed/embeddings/
+/.config/zed/conversations/
+/.config/zed/tasks.json
+/.config/zed/.tmp*

@@ -1,5 +1,9 @@
-vim.opt.guicursor = ""
+-- Settings for nvim
 
+-- Cursor: block when normal, vertical bar when insert.
+vim.opt.guicursor = "n:block,i:ver75-Cursor"
+
+-- Line numbering on and relative
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -28,4 +32,4 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "150"
+vim.opt.colorcolumn = "180"

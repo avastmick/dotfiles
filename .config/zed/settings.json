@@ -1,14 +1,13 @@
-// Zed settings
+// ------------- Zed settings -------------
 //
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
+// Mick Clarke 2024
 //
 {
   // UI settings
   "theme": "Gruvbox Dark",
   "ui_font_size": 13,
   // Editor settings
-  "preferred_line_length": 150,
+  "preferred_line_length": 180,
   "soft_wrap": "preferred_line_length",
   "buffer_font_family": "FiraCode Nerd Font Mono",
   "buffer_font_size": 11.5,
@@ -19,9 +18,26 @@
     "enabled": true,
     "show_type_hints": true,
     "show_parameter_hints": true,
-    "show_other_hints": true
+    "show_other_hints": false
   },
-  // Rust settings
+  // ------------- Vim mode settings -------------
+  "vim_mode": true,
+  // use relative line numbers
+  "relative_line_numbers": true,
+  // hide the scroll bar
+  "scrollbar": { "show": "never" },
+  // allow cursor to reach edges of screen
+  "vertical_scroll_margin": 0,
+  "gutter": {
+    // disable line numbers completely:
+    "line_numbers": false
+  },
+  "vim": {
+    "use_system_clipboard": "always",
+    // Lets `f` and `t` motions extend across multiple lines
+    "use_multiline_find": true
+  },
+  // ------------- Rust settings -------------
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
@@ -41,14 +57,11 @@
       }
     },
     "language_overrides": {},
-    // Copilot
+    // ------------- Copilot settings -------------
     "copilot": {
-      "disabled_globs": [
-        ".env",
-        "scratchpad.*"
-      ]
+      "disabled_globs": [".env", "scratchpad.*"]
     },
-    // Turn of telemetry
+    // ------------- Telemetry settings -------------
     "telemetry": {
       "diagnostics": false,
       "metrics": false

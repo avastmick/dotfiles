@@ -3,12 +3,14 @@
 
 #startup modes:Windowed, Maximized, Fullscreen
 [window]
-padding = { x = 2, y = 2 }
-dynamic_padding = true
-opacity = 1.0
-title = "Alacritty"
-startup_mode = "Fullscreen"
-decorations = "transparent"
+  padding = { x = 2, y = 2 }
+  dynamic_padding = true
+  opacity = 0.9
+  title = "Alacritty"
+  startup_mode = "Maximized"
+  decorations = "buttonless"
+  # MacOS binding of Option key to Meta
+  option_as_alt = "Both"
 
 # Note on MacOS the font rendering is 'thicker' than, say, iTerm2, to fix:
 # run 'defaults write org.alacritty AppleFontSmoothing -int 0' and logout/login
@@ -20,11 +22,12 @@ decorations = "transparent"
     # family = "Hack Nerd Font Mono"
     style = "Regular"
   [font.bold]
-    # family = "Fira Code"
+    family = "Fira Code"
     # family = "JetBrains Mono"
-    # style = "Regular"
 
 [colors]
+transparent_background_colors = true
+
 # Colors (Gruvbox Medium Dark: VSCode plugin Theme - Gruvbox)
 # $background:    #282828;
 # $text-color:    #d5c4a1;
@@ -44,6 +47,7 @@ decorations = "transparent"
 # $dark-green:    #98971a;
 # $grey:          #a89984;
 # $dark-grey:     #7c6f64;
+
   [colors.primary]
     background = '0x282828'
     foreground = '0xd5c4a1'
