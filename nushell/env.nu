@@ -105,8 +105,8 @@ $env.NU_PLUGIN_DIRS = [
 #######################################################
 # My env config
 #######################################################
-# Set the system editor
-$env.EDITOR = "vim"
+# Set the system editor - Helix
+$env.EDITOR = "hx"
 # Set a consistent TERM (tmux vs vim)
 $env.TERM = "xterm-256color"
 # For come reason /usr/local/bin is not in the path
