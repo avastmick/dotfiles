@@ -10,11 +10,12 @@ return require('packer').startup(function(use)
     -- Finding stuff
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+        requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-tree/nvim-web-devicons' } }
     }
     use("theprimeagen/harpoon")
     use({
         "folke/trouble.nvim",
+        requires = { { "nvim-tree/nvim-web-devicons" } },
         config = function()
             require("trouble").setup {
                 icons = true,
@@ -22,6 +23,7 @@ return require('packer').startup(function(use)
             }
         end
     })
+
 
     -- Treesitter
     use {
@@ -53,9 +55,9 @@ return require('packer').startup(function(use)
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-nvim-lua' },
+            { 'saadparwaiz1/cmp_luasnip' },
 
             -- Snippets
             { 'L3MON4D3/LuaSnip' },
