@@ -7,11 +7,12 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     -- TODO: Packer is no longer maintained. Look at options for replacement.
     use 'wbthomason/packer.nvim'
-
+    -- Finding stuff
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    use("theprimeagen/harpoon")
     use({
         "folke/trouble.nvim",
         config = function()
@@ -21,21 +22,23 @@ return require('packer').startup(function(use)
             }
         end
     })
+
+    -- Treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end, }
-
-    use("ellisonleao/gruvbox.nvim")
-    use('ojroques/nvim-hardline')
     use("nvim-treesitter/playground")
-    use("theprimeagen/harpoon")
+    use("nvim-treesitter/nvim-treesitter-context");
+    -- Color scheme
+    use("ellisonleao/gruvbox.nvim")
+    -- statusline
+    use('ojroques/nvim-hardline')
     use("mbbill/undotree")
     use("tpope/vim-fugitive")
     use("tpope/vim-commentary")
-    use("nvim-treesitter/nvim-treesitter-context");
 
     use {
         'VonHeikemen/lsp-zero.nvim',

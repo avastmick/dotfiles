@@ -49,8 +49,5 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 -- Map LSP code actions
--- Have a look at https://github.com/simrat39/rust-tools.nvim
--- In visual mode the selected code will be used to create a new function
--- vim.keymap.set({ 'v', 'n' }, '<Leader>ca', vim.lsp.buf.code_action)
 
 -- End
