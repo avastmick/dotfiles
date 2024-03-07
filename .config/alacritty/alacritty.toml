@@ -22,7 +22,7 @@
     # family = "Hack Nerd Font Mono"
     style = "Regular"
   [font.bold]
-    family = "Fira Code"
+    family = "FiraCode Nerd Font Mono"
     # family = "JetBrains Mono"
 
 [colors]
