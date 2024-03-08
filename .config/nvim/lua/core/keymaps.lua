@@ -2,7 +2,7 @@
 -- Author: Avastmick (based on theprimeagen's config)
 --
 -- The leader is set to space
-vim.g.mapleader = " "
+-- vim.g.mapleader = " "
 -- <leader>pv to NetRW
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
@@ -16,7 +16,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- greatest remap ever
+-- puts the current register, but does not overwrite, so you can repeatedly put multiple times with the same result.
 vim.keymap.set("x", "<leader>p", [["_dP]])
 -- yank to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -51,3 +51,4 @@ end)
 -- Map LSP code actions
 
 -- End
+
