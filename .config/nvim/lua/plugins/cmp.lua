@@ -17,32 +17,33 @@ return {
 
             require("luasnip/loaders/from_vscode").lazy_load()
 
+            -- Kind icons look at https://copypastecharacter.com/all-characters
             local kind_icons = {
-                Text = "",
+                Text = "⎘",
                 Method = "m",
-                Function = "",
+                Function = "⒡",
                 Constructor = "",
                 Field = "",
-                Variable = "",
-                Class = "",
+                Variable = "v",
+                Class = "♺",
                 Interface = "",
                 Module = "",
                 Property = "",
                 Unit = "",
-                Value = "",
+                Value = "€",
                 Enum = "",
                 Keyword = "",
                 Snippet = "",
-                Color = "",
-                File = "",
+                Color = "✎",
+                File = "✉",
                 Reference = "",
-                Folder = "",
+                Folder = "f",
                 EnumMember = "",
-                Constant = "",
+                Constant = "c",
                 Struct = "",
                 Event = "",
-                Operator = "",
-                TypeParameter = "",
+                Operator = "o",
+                TypeParameter = "⒯",
             }
 
             cmp.setup({
@@ -56,28 +57,29 @@ return {
                     ["<C-j>"] = cmp.mapping.select_next_item(),
                     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                    ['<C-e>'] = cmp.mapping.abort(),
                     ["<CR>"] = cmp.mapping.confirm({
                         behavior = cmp.ConfirmBehavior.Replace,
                         select = false,
                     }),
-                    ["<Tab>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_next_item()
-                        elseif luasnip.expand_or_jumpable() then
-                            luasnip.expand_or_jump()
-                        else
-                            fallback()
-                        end
-                    end, { "i", "s" }),
-                    ["<S-Tab>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_prev_item()
-                        elseif luasnip.jumpable(-1) then
-                            luasnip.jump(-1)
-                        else
-                            fallback()
-                        end
-                    end, { "i", "s" }),
+                    -- ["<Tab>"] = cmp.mapping(function(fallback)
+                    --     if cmp.visible() then
+                    --         cmp.select_next_item()
+                    --     elseif luasnip.expand_or_jumpable() then
+                    --         luasnip.expand_or_jump()
+                    --     else
+                    --         fallback()
+                    --     end
+                    -- end, { "i", "s" }),
+                    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
+                    --     if cmp.visible() then
+                    --         cmp.select_prev_item()
+                    --     elseif luasnip.jumpable(-1) then
+                    --         luasnip.jump(-1)
+                    --     else
+                    --         fallback()
+                    --     end
+                    -- end, { "i", "s" }),
                 }),
                 formatting = {
                     fields = { "kind", "abbr", "menu" },

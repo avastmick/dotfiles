@@ -5,6 +5,7 @@ return {
         config = function()
             require("trouble").setup({
                 icons = true,
+                position = "right",
             })
 
             vim.keymap.set("n", "<leader>tt", function()
