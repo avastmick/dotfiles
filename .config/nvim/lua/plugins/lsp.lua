@@ -23,6 +23,10 @@ return {
                     "pylsp",
                 },
                 automatic_installation = true,
+                -- Explicitly limit to rust-analyzer
+                rust_analyzer = function()
+                    return true
+                end,
             })
 
             -- Quick access via keymap
