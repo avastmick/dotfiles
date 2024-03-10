@@ -1,15 +1,25 @@
 local opts = {
     guicursor = "n:block,i:ver75-Cursor",
+    scrolloff = 8,
+    signcolumn = "yes",
+    updatetime = 50,
     -- tabs
     shiftwidth = 4,
     tabstop = 4,
     expandtab = true,
+    smartindent = true,
     -- wrap
     wrap = true,
+    -- colours
     termguicolors = true,
     -- line numbering
     nu = true,
     relativenumber = true,
+    -- swap /undo
+    swapfile = false,
+    backup = false,
+    undodir = os.getenv("HOME") .. "/.vim/undodir",
+    undofile = true,
 }
 
 -- Set options from table
