@@ -21,9 +21,9 @@ non-requirements:
 
 ## TODO:
 
-- [ ] Fix `lsp` configuration for Rust.
-    Current status is that the <leader> actions are not working, e.g., <leader>lr for rename does nothing and only action the 'a' vim command.
+- [X] Fix `lsp` configuration for Rust.
 - [ ] Add in in-lay hints for Rust. Would be nice to have it to switch on and off by a command.
+- [ ] Add a prettier rust-analyzer view. This looks like a status line action - see (https://www.reddit.com/r/neovim/comments/1afw5tc/comment/kogjlbt/)
 - [ ] Remove unnecessary text highlighting, especially in VISUAL mode. Too much right now, have mapped 'Esc' to 'noh'.
 - [ ] Add `nushell` support.
 - [X] Fix harpoon configuration.

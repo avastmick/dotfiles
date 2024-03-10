@@ -146,6 +146,41 @@ return {
                     },
                 },
             })
+            -------------------------------------------------------------------
+            -- Rust specific keymaps - only runs when Rust LSP is running.
+            -------------------------------------------------------------------
+            vim.g.rustaceanvim = {
+                -- Plugin configuration
+                tools = {
+                },
+                server = {
+                    on_attach = function(client, bufnr)
+                        -- Hover.
+                        vim.keymap.set('n', 'K', function() vim.cmd.RustLsp { 'hover', 'actions' } end,
+                            { buffer = bufnr })
+                        -- Code Actions.
+                        vim.keymap.set("n", "<leader>la", function() vim.cmd.RustLsp { 'codeAction' } end,
+                            { buffer = bufnr })
+
+                        -- Standard LSP mappings
+                        -- Goto definition
+                        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,
+                            { buffer = bufnr })
+                        -- Goto references
+                        vim.keymap.set("n", "gr", function() require("telescope.builtin").lsp_references() end,
+                            { buffer = bufnr })
+                        -- Rename.
+                        vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end,
+                            { buffer = bufnr })
+                    end,
+                    default_settings = {
+                        -- rust-analyzer language server configuration
+                        ['rust-analyzer'] = {
+                        },
+                    },
+                }
+            }
+            -------------------------------------------------------------------
         end,
     },
 }
