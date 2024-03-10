@@ -7,7 +7,13 @@ return {
             "williamboman/mason-lspconfig.nvim",
             {
                 "j-hui/fidget.nvim",
-                tag = "legacy",
+                tag = "v1.4.0",
+                opts = {
+                    window = {
+                        winblend = 0,
+                        relative = "editor",
+                    },
+                },
                 event = "LspAttach",
             },
             "folke/neodev.nvim",
@@ -36,7 +42,7 @@ return {
             require("neodev").setup()
 
             -- Turn on LSP status information
-            require("fidget").setup()
+            require("fidget").setup({})
 
             -- Set up cool signs for diagnostics
             local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
