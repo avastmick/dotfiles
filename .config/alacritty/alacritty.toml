@@ -16,14 +16,16 @@
 # run 'defaults write org.alacritty AppleFontSmoothing -int 0' and logout/login
 [font]
   size = 11.75
+  # Note: FiraCode does not have bold or italic, so we use JetBrainsMono for those
   [font.normal] 
     family = "FiraCode Nerd Font Mono"
-    # family = "JetBrains Mono"
-    # family = "Hack Nerd Font Mono"
+    # family = "JetBrainsMono Nerd Font"
     style = "Regular"
   [font.bold]
-    family = "FiraCode Nerd Font Mono"
-    # family = "JetBrains Mono"
+    # family = "FiraCode Nerd Font Mono"
+    family = "JetBrainsMono Nerd Font"
+  [font.italic] 
+    family = "JetBrainsMono Nerd Font"
 
 [mouse]
   hide_when_typing = true

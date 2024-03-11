@@ -32,6 +32,7 @@ vim.g.netrw_banner = 0    -- Disables the Netrw banner. Press 'I' to toggle.
 vim.g.netrw_liststyle = 3 -- Sets the view to treeview.
 
 -- Colourscheme set-up
+vim.o.termguicolors = true
 local colorscheme = require("helpers.colorscheme")
 vim.cmd.colorscheme(colorscheme)
 

@@ -16,8 +16,8 @@ local function get_if_available(name, opts)
 end
 
 -- Uncomment the colorscheme to use
--- local colorscheme = get_if_available('tokyonight')
 local colorscheme = get_if_available('gruvbox')
--- local colorscheme = get_if_available('rose-pine')
+-- FIXME: catppuccin is not working with transparent background
+-- local colorscheme = get_if_available('catppuccin')
 
 return colorscheme

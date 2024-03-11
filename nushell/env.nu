@@ -107,8 +107,8 @@ $env.NU_PLUGIN_DIRS = [
 #######################################################
 # Set the system editor - Nvim
 $env.EDITOR = "nvim"
-# Set a consistent TERM (tmux vs vim)
-$env.TERM = "xterm-256color"
+# Set a consistent TERM (tmux vs vim) - DO NOT SET THIS
+$env.TERM = "alacritty"
 # For come reason /usr/local/bin is not in the path
 let usr_local_bin_path = ( $nu.home-path | path join "/usr/local/bin" )
 # return $env.PATH if $my_path is already listed, return $env.PATH with $my_path prepended otherwise
