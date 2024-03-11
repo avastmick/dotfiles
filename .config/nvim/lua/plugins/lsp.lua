@@ -8,8 +8,6 @@ return {
             {
                 "j-hui/fidget.nvim",
                 tag = "v1.4.0",
-                opts = {
-                },
                 event = "LspAttach",
             },
             "folke/neodev.nvim",
@@ -166,7 +164,7 @@ return {
                 tools = {
                 },
                 server = {
-                    on_attach = function(bufnr)
+                    on_attach = function(client, bufnr)
                         -- Hover.
                         vim.keymap.set('n', 'K', function() vim.cmd.RustLsp { 'hover', 'actions' } end,
                             { buffer = bufnr })
