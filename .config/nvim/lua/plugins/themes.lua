@@ -9,7 +9,7 @@ return {
             require("gruvbox").setup({
                 terminal_colors = true, -- add neovim terminal colors
                 transparent_mode = true,
-                dim_inactive = true,
+                dim_inactive = false,
                 undercurl = true,
                 underline = true,
                 bold = true,
@@ -25,7 +25,7 @@ return {
                 invert_signs = false,
                 invert_tabline = false,
                 invert_intend_guides = false,
-                inverse = true,    -- invert background for search, diffs, statuslines and errors
+                inverse = false,   -- invert background for search, diffs, statuslines and errors
                 contrast = "soft", -- can be "hard", "soft" or empty string
                 palette_overrides = {},
                 overrides = {},
@@ -58,16 +58,16 @@ return {
                 dim_inactive = true,                    -- dims inactive windows
                 lualine_bold = false,                   -- When `true`, section headers in the lualine theme will be bold
 
-                --- You can override specific color groups to use other groups or a hex color
-                --- function will be called with a ColorScheme table
-                --- @param colors ColorScheme
-                on_colors = function(colors) end,
+                -- You can override specific color groups to use other groups or a hex color
+                -- function will be called with a ColorScheme table
+                -- @param colors ColorScheme
+                -- on_colors = function(colors) end,
 
-                --- You can override specific highlights to use other groups or a hex color
-                --- function will be called with a Highlights and ColorScheme table
-                ---@param highlights Highlights
-                ---@param colors ColorScheme
-                on_highlights = function(highlights, colors) end,
+                -- You can override specific highlights to use other groups or a hex color
+                -- function will be called with a Highlights and ColorScheme table
+                -- @param highlights Highlights
+                -- @param colors ColorScheme
+                -- on_highlights = function(highlights, colors) end,
             })
         end
     },
@@ -130,17 +130,17 @@ return {
                     -- VertSplit = { fg = "muted", bg = "muted" },
                 },
 
-                before_highlight = function(group, highlight, palette)
-                    -- Disable all undercurls
-                    -- if highlight.undercurl then
-                    --     highlight.undercurl = false
-                    -- end
-                    --
-                    -- Change palette colour
-                    -- if highlight.fg == palette.pine then
-                    --     highlight.fg = palette.foam
-                    -- end
-                end,
+                -- before_highlight = function(group, highlight, palette)
+                -- Disable all undercurls
+                -- if highlight.undercurl then
+                --     highlight.undercurl = false
+                -- end
+                --
+                -- Change palette colour
+                -- if highlight.fg == palette.pine then
+                --     highlight.fg = palette.foam
+                -- end
+                -- end,
             })
         end
     },
