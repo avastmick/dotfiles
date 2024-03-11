@@ -6,6 +6,8 @@ return {
             require("trouble").setup({
                 icons = true,
                 position = "bottom", -- in [ "left", "right", "bottom"]
+                height = 5,          -- height of the trouble list when position is top or bottom
+                padding = false,     -- Add padding to the list
             })
 
             vim.keymap.set("n", "<leader>tt", function()
