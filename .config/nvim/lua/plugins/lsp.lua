@@ -9,10 +9,6 @@ return {
                 "j-hui/fidget.nvim",
                 tag = "v1.4.0",
                 opts = {
-                    window = {
-                        winblend = 0,
-                        relative = "editor",
-                    },
                 },
                 event = "LspAttach",
             },
@@ -42,7 +38,17 @@ return {
             require("neodev").setup()
 
             -- Turn on LSP status information
-            require("fidget").setup({})
+            require("fidget").setup({
+                -- Need to set the fidget window to be transparent
+                notification = {
+                    window = {
+                        winblend = 0,
+                        max_width = 70,
+                        max_height = 0,
+                        relative = "editor",
+                    },
+                },
+            })
 
             -- Set up cool signs for diagnostics
             local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -160,7 +166,7 @@ return {
                 tools = {
                 },
                 server = {
-                    on_attach = function(client, bufnr)
+                    on_attach = function(bufnr)
                         -- Hover.
                         vim.keymap.set('n', 'K', function() vim.cmd.RustLsp { 'hover', 'actions' } end,
                             { buffer = bufnr })
