@@ -21,6 +21,7 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "pylsp",
+                    "jsonls",
                 },
                 automatic_installation = true,
                 -- Explicitly limit to rust-analyzer
@@ -156,6 +157,22 @@ return {
                     },
                 },
             })
+
+            -- JSON
+            require("lspconfig")["jsonls"].setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
+                settings = {
+                    jsonls = {
+                        cmd = { "vscode-json-language-server", "--stdio" },
+                        filetypes = { "json", "jsonc" },
+                        init_options = {
+                            provideFormatter = true,
+                        },
+                    },
+                },
+            })
+
             -------------------------------------------------------------------
             -- Rust specific keymaps - only runs when Rust LSP is running.
             -------------------------------------------------------------------
