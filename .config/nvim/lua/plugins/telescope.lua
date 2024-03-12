@@ -30,18 +30,18 @@ return {
             map("n", "<leader>/", function()
                 -- You can pass additional configuration to telescope to change theme, layout, etc.
                 require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-                    winblend = 10,
+                    winblend = 0,
                     previewer = false,
                 }))
             end, "Search in current buffer")
 
-            map("n", "<leader>sf", require("telescope.builtin").find_files, "Files")
+            map("n", "<leader>sk", require("telescope.builtin").keymaps, "Search keymaps")
             map("n", "<leader>sh", require("telescope.builtin").help_tags, "Help")
             map("n", "<leader>sw", require("telescope.builtin").grep_string, "Current word")
             map("n", "<leader>sg", require("telescope.builtin").live_grep, "Grep")
             map("n", "<leader>sd", require("telescope.builtin").diagnostics, "Diagnostics")
 
-            map("n", "<C-p>", require("telescope.builtin").keymaps, "Search keymaps")
+            map("n", "<C-p>", require("telescope.builtin").find_files, "Files")
         end,
     },
 }

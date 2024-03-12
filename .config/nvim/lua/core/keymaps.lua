@@ -19,6 +19,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- puts the current register, but does not overwrite, so you can repeatedly put multiple times with the same result.
 vim.keymap.set("x", "<leader>p", [["_dP]])
+
 -- yank to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
@@ -29,7 +30,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("t", "jk", [[<C-\><C-n>]])
 
--- Map "Q" to no operation
+-- Map "Q" to no operation (normally it's exit)
 vim.keymap.set("n", "Q", "<nop>")
 -- Clear search highlighting
 vim.keymap.set("n", "<Esc>", function() vim.cmd("noh") end)
