@@ -26,7 +26,7 @@ return {
             local map = require("helpers.keys").map
             map("n", "<leader>of", require("telescope.builtin").oldfiles, "Recently opened")
             map('n', '<leader>pf', require("telescope.builtin").find_files, {})
-            map("n", "<leader><space>", require("telescope.builtin").buffers, "Open buffers")
+            map("n", "<leader>bf", require("telescope.builtin").buffers, "Open buffers")
             map("n", "<leader>/", function()
                 -- You can pass additional configuration to telescope to change theme, layout, etc.
                 require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
@@ -42,6 +42,7 @@ return {
             map("n", "<leader>sd", require("telescope.builtin").diagnostics, "Diagnostics")
 
             map("n", "<C-p>", require("telescope.builtin").find_files, "Files")
+            map("n", "<C-b>", require("telescope.builtin").buffers, "Open buffers")
         end,
     },
 }
