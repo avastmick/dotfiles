@@ -18,14 +18,14 @@
   size = 11.75
   # Note: FiraCode does not have bold or italic, so we use JetBrainsMono for those
   [font.normal] 
-    family = "FiraCode Nerd Font Mono"
-    # family = "JetBrainsMono Nerd Font"
-    style = "Regular"
-  [font.bold]
     # family = "FiraCode Nerd Font Mono"
     family = "JetBrainsMono Nerd Font"
+    # style = "Regular"
+  [font.bold]
+    # family = "MonaspireAr Nerd Font"
+    # family = "JetBrainsMono Nerd Font"
   [font.italic] 
-    family = "JetBrainsMono Nerd Font"
+    # family = "JetBrainsMono Nerd Font"
 
 [mouse]
   hide_when_typing = true
