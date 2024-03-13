@@ -37,6 +37,7 @@ vim.g.netrw_liststyle = 3 -- Sets the view to treeview.
 vim.o.termguicolors = true
 local colorscheme = require("helpers.colorscheme")
 vim.cmd.colorscheme(colorscheme)
+-- vim.cmd.colorscheme("catppuccin")
 
 -- Format on save
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
