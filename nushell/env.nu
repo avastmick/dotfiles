@@ -107,18 +107,27 @@ $env.NU_PLUGIN_DIRS = [
 #######################################################
 # Set the system editor - Nvim
 $env.EDITOR = "nvim"
-# Set a consistent TERM (tmux vs vim) - DO NOT SET THIS
-# $env.TERM = "alacritty"
-# For come reason /usr/local/bin is not in the path
+
+# For some reason /usr/local/bin is not in the path
 let usr_local_bin_path = ( $nu.home-path | path join "/usr/local/bin" )
 # return $env.PATH if $my_path is already listed, return $env.PATH with $my_path prepended otherwise
 $env.PATH = ( if $usr_local_bin_path in $env.PATH { $env.PATH } else { $env.PATH | prepend $usr_local_bin_path } )
+
 # Homebrew for macOS ARM64 (Apple Silicon)
 $env.PATH = ($env.PATH | split row (char esep) | prepend "/opt/homebrew/bin")
+
 # Cargo crate cacheing
 $env.RUSTC_WRAPPER = "sccache"
+
 # Git Semantic Commits
 $env.PATH = ($env.PATH | split row (char esep) | prepend "/Users/avastmick/.git-semantic-commits")
+
+# Go PATH
+$env.GOPATH = "/Users/avastmick/go"
+$env.PATH = ( if $env.GOPATH in $env.PATH { $env.PATH } else { $env.PATH | prepend $env.GOPATH } )
+let go_bin_path = ( $nu.home-path | path join "/Users/avastmick/go/bin" )
+$env.PATH = ( if $go_bin_path in $env.PATH { $env.PATH } else { $env.PATH | prepend $go_bin_path } )
+
 # Secretive SSH Agent
 $env.SSH_AUTH_SOCK = "/Users/avastmick/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 

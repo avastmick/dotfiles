@@ -21,15 +21,20 @@ non-requirements:
 
 ## TODO:
 
-- [X] Fix `lsp` configuration for Rust.
-- [X] The standard LSP has a feature where the function is kept at the top while scrolling. This is super useful, but missing in the Rust LSP.
+- [ ] Add `nushell` support.
+- [ ] Tmux fixes: 
+    - [ ] Keyboard scrolling does not work anymore.
+    - [ ] Theme to match nvim and alacritty.
+    - [ ] Sort out status bar.
+- [ ] $env.env-path file: remove redundant additions to $env.PATH and ensure that $env.HOME is used, rather than a hard-coded path.
+- [-] re-configure prompt to something simpler. Add username and machine icon. Add time on prompt.
 - [ ] Add in in-lay hints for Rust. Would be nice to have it to switch on and off by a command.
 - [ ] Remove unnecessary text highlighting, especially in VISUAL mode. Too much right now, have mapped 'Esc' to 'noh'.
         This is coming from `vim-illuminate` that is called from `lsp.lua`. Just needs to be toned down.
 - [X] Add a prettier rust-analyzer view. 
-- [ ] Add `nushell` support.
+- [X] Fix `lsp` configuration for Rust.
+- [X] The standard LSP has a feature where the function is kept at the top while scrolling. This is super useful, but missing in the Rust LSP.
 - [X] Fix harpoon configuration.
 - [X] Fix icons for `lsp` etc.
 - [X] Add shortcut to hide or turn-off cmp. "Ctrl+e" aborts/cancels the completion.
-- [X] re-configure prompt to something simpler.
 
