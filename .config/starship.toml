@@ -1,4 +1,28 @@
 # Starship prompt
+
+format = """
+(color_bg3)\
+$os\
+$username\
+[](bg:color_bg1 fg:color_bg3)\
+$directory\
+[](fg:color_bg1 bg:color_aqua)\
+$git_branch\
+$git_status\
+[](fg:color_aqua bg:color_blue)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$java\
+$kotlin\
+$python\
+[](fg:color_blue)\
+$line_break$time$character"""
+
+# Sets user-defined palette
+palette = "catppuccin_frappe"
+
 # Icons and config:
 [character]
 success_symbol = "[[✓](green) ➜](maroon)"
@@ -28,8 +52,10 @@ disabled = true
 symbol = "󰡨 "
 disabled = true
 
-# Sets user-defined palette
-palette = "catppuccin_frappe"
+[time]
+disabled = false
+time_format = "%R"
+format = '$time '
 
 # palette tables should be last in the config ⚓️
 [palettes.catppuccin_macchiato]
