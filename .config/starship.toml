@@ -17,15 +17,12 @@ style = "dimmed red"
 [git_branch]
 symbol = " " 
 
-
 # Excludes:
 [package]
 disabled = true
 [gcloud]
 disabled = true
 [aws]
-disabled = true
-[docker]
 disabled = true
 [docker_context]
 symbol = "󰡨 "
