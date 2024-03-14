@@ -1,6 +1,7 @@
 # Starship prompt
 
 format = """
+[╭─ ]\
 (color_bg3)\
 $os\
 $username\
@@ -18,28 +19,110 @@ $java\
 $kotlin\
 $python\
 [](fg:color_blue)\
-$line_break$time$character"""
+$line_break(green)$time$character"""
+
+# Prefer to not complete the loop '[╰──]'
 
 # Sets user-defined palette
 palette = "catppuccin_frappe"
 
 # Icons and config:
 [character]
-success_symbol = "[[✓](green) ➜](maroon)"
-error_symbol = "[➜](red)"
-vimcmd_symbol = "[➜](green)"
+disabled = false
+success_symbol = '[✓](green) [➜](blue)'
+error_symbol = '[!](red) [➜](blue)'
+vimcmd_symbol = '[](green) [➜](blue)'
+
+[line_break]
+disabled = false
+
+[time]
+disabled = false
+time_format = "%R"
+format = '$time '
+
 # Configure the number of directories to truncate in the current path
 [directory]
 truncation_length = 4
 truncate_to_repo = true
+truncation_symbol = "…/"
 # Catppuccin 'lavender'
 style = "lavender"
 
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+format = '[$symbol $branch ]($style)'
+
+[git_status]
+format = '[($all_status$ahead_behind )]($style)'
+
+[os]
+disabled = false
+style = "bg:color_bg3 fg:color_fg0"
+
+[os.symbols]
+Ubuntu = "󰕈"
+SUSE = ""
+Macos = "󰀵"
+Linux = "󰌽"
+Fedora = "󰣛"
+Arch = "󰣇"
+Debian = "󰣚"
+
+[username]
+show_always = true
+style_user = "bg:color_bg3 fg:color_fg0"
+style_root = "bg:color_bg3 fg:color_fg0"
+format = '[ $user ]($style)'
+
+# Language specific configuration
 [rust]
 symbol = " "
-style = "dimmed red"
-[git_branch]
-symbol = " " 
+style = "bg:color_blue"
+format = '[[$symbol($version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[python]
+symbol = " "
+style = "bg:color_blue"
+format = '[[$symbol($version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[nodejs]
+symbol = " "
+style = "bg:color_blue"
+format = '[[$symbol($version)  ](fg:color_fg0 bg:color_blue)]($style)'
+
+[golang]
+symbol = " "
+style = "bg:color_blue"
+format = '[[$symbol($version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[c]
+symbol = " "
+style = "bg:color_blue"
+format = '[[$symbol($version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[java]
+symbol = " "
+style = "bg:color_blue"
+format = '[[$symbol($version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[kotlin]
+symbol = " "
+style = "bg:color_blue"
+format = '[[$symbol($version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[docker_context]
+# disabled = true
+symbol = " "
+style = "bg:color_bg3"
+format = '[[ $symbol($context) ](fg:#83a598 bg:color_bg3)]($style)'
 
 # Excludes:
 [package]
@@ -48,14 +131,6 @@ disabled = true
 disabled = true
 [aws]
 disabled = true
-[docker_context]
-symbol = "󰡨 "
-disabled = true
-
-[time]
-disabled = false
-time_format = "%R"
-format = '$time '
 
 # palette tables should be last in the config ⚓️
 [palettes.catppuccin_macchiato]

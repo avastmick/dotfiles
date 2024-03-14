@@ -11,6 +11,8 @@ return {
     "tpope/vim-fugitive",
     -- GitHub copilot integration.
     "github/copilot.vim",
+    -- Fun stuff
     "eandrju/cellular-automaton.nvim",
-    "gpanders/editorconfig.nvim",
+    -- Tutorial
+    "theprimeagen/vim-be-good",
 }
