@@ -15,6 +15,7 @@ local opts = {
     -- line numbering
     nu = true,
     relativenumber = true,
+    cursorline = true,
     -- showmode off as using lua-line
     showmode = false,
     -- swap /undo
