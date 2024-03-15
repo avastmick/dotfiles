@@ -2,7 +2,6 @@
 -- Author: Avastmick (based on theprimeagen's config)
 --
 -- The leader is set to space. Done in core/lazy.lua
--- vim.g.mapleader = " "
 
 -- <leader>pv to NetRW
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
@@ -35,6 +34,7 @@ vim.keymap.set("n", "Q", "<nop>")
 -- Clear search highlighting
 vim.keymap.set("n", "<Esc>", function() vim.cmd("noh") end)
 
+
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
@@ -42,11 +42,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- in-file search and replace
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- LOL!
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
-
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
