@@ -33,6 +33,7 @@ vim.keymap.set("t", "jk", [[<C-\><C-n>]])
 vim.keymap.set("n", "Q", "<nop>")
 -- Clear search highlighting
 vim.keymap.set("n", "<Esc>", function() vim.cmd("noh") end)
+vim.keymap.set("n", "<C-c>", function() vim.cmd("noh") end)
 
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")

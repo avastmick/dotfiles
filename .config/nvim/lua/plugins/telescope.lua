@@ -41,8 +41,9 @@ return {
             map("n", "<leader>sg", require("telescope.builtin").live_grep, "Grep")
             map("n", "<leader>sd", require("telescope.builtin").diagnostics, "Diagnostics")
 
-            map("n", "<C-p>", require("telescope.builtin").find_files, "Files")
-            map("n", "<C-b>", require("telescope.builtin").buffers, "Open buffers")
+            -- Map to use Meta key (Alt) instead of Ctrl
+            map("n", "<M-f>", require("telescope.builtin").find_files, "Files")
+            map("n", "<M-b>", require("telescope.builtin").buffers, "Open buffers")
         end,
     },
 }
