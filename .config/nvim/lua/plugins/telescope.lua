@@ -18,7 +18,14 @@ return {
                         },
                     },
                 },
+                extensions = {
+                    file_browser = {
+                        -- disables netrw and use telescope-file-browser in its place
+                        hijack_netrw = true,
+                    },
+                },
             })
+            require("telescope").load_extension "file_browser"
 
             -- Enable telescope fzf native, if installed
             pcall(require("telescope").load_extension, "fzf")
