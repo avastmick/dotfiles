@@ -18,6 +18,15 @@ return {
                         },
                     },
                 },
+                pickers = {
+                    buffers = {
+                        mappings = {
+                            i = {
+                                ["<c-d>"] = require("telescope.actions").delete_buffer,
+                            }
+                        }
+                    }
+                },
                 extensions = {
                     file_browser = {
                         -- disables netrw and use telescope-file-browser in its place

@@ -1,10 +1,7 @@
 -- Custom key mappings
--- Author: Avastmick (based on theprimeagen's config)
+-- Author: Avastmick
 --
 -- The leader is set to space. Done in core/lazy.lua
-
--- <leader>pv to NetRW
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Allows for moving selected line / block of text in visual mode.
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
