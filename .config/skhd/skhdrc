@@ -8,6 +8,12 @@ alt - l : yabai -m window --focus east
 alt - s: yabai -m display --focus west
 alt - g: yabai -m display --focus east
 
+# toggle window parent zoom
+alt - d : yabai -m window --toggle zoom-parent
+
+# toggle window fullscreen zoom
+alt - f : yabai -m window --toggle zoom-fullscreen
+
 # rotate layout clockwise
 shift + alt - r : yabai -m space --rotate 270
 
