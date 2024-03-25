@@ -777,9 +777,9 @@ source ~/.cache/starship/init.nu
 # General aliases 
 ###############################################################################
 alias ll = ls -al
-# vim -> nvim
+# vim -> nvim; vi -> nvim
 alias vim = nvim
-
+alias vi = nvim
 
 ###############################################################################
 # Git aliases

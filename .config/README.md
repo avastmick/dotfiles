@@ -14,6 +14,7 @@ The current state is based on a `MacOS` installation of a terminal-based develop
 ### TODO
 
 - [ ] $env.env-path file: remove redundant additions to $env.PATH and ensure that $env.HOME is used, rather than a hard-coded path.
+- [ ] Ensure that the `bash` configuration is up to date and that the integration to `atuin` and `ble` is working. Right now there are issues with the `ble` configuration where it clashes with the terminal theme. Look at [Manual Graphics](https://github.com/akinomyoga/ble.sh/wiki/Manual-%C2%A72-Graphics) for more information.
 
 ### Tools
 
@@ -30,7 +31,7 @@ Look at optimisation, robustness and lack of complex configuration.
 
 - Dotfiles - evaluate a shift to [Nix Homemanager](https://nixos.wiki/wiki/Home_Manager), possibly as a part of a wider move to a whole machine configuration using `Nix` and away from `homebrew` and `apt`, etc.
 - Terminal multiplexer - evaluate [Zellij](https://zellij.dev/) to see if it uses less memory than `tmux`.
-- Editor - evaluate [Helix](https://helix-editor.com/) to see if the early view on memory usage is carried over in everyday mode.
+- Editor - evaluate [Helix](https://helix-editor.com/) to see if the early view on memory usage is carried over in everyday mode. The only significant missing feature is `copilot` or similar.
 
 
 ### Helix
