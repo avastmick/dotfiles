@@ -4,15 +4,15 @@ return {
         "nvim-lua/plenary.nvim",
         name = "plenary"
     },
-
     -- Commenting things out.
     "tpope/vim-commentary",
+
+    -- Undo tree.
     "mbbill/undotree",
-    "tpope/vim-fugitive",
+
     -- GitHub copilot integration.
     "github/copilot.vim",
-    -- Fun stuff
-    "eandrju/cellular-automaton.nvim",
-    -- Tutorial
+
+    -- Vim tutorials and games.
     "theprimeagen/vim-be-good",
 }

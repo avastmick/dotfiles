@@ -50,7 +50,7 @@ return {
             })
 
             -- Set up cool signs for diagnostics
-            local signs = { Error = " ", Warn = " ", Hint = "󱏘 ", Info = " " }
+            local signs = { Error = " ", Warn = " ", Hint = "󱩎 ", Info = " " }
             for type, icon in pairs(signs) do
                 local hl = "DiagnosticSign" .. type
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -96,7 +96,7 @@ return {
                     vim.lsp.buf.format()
                 end, { desc = "Format current buffer with LSP" })
 
-                lsp_map("<leader>ff", "<cmd>Format<cr>", bufnr, "Format")
+                lsp_map("<leader>F", "<cmd>Format<cr>", bufnr, "Format")
 
                 -- Attach and configure vim-illuminate
                 require("illuminate").on_attach(client)
