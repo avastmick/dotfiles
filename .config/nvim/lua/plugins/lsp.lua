@@ -200,14 +200,14 @@ return {
             })
 
             -------------------------------------------------------------------
-            -- Rust specific keymaps - only runs when Rust LSP is running.
+            -- Rust specific config - only runs when Rust LSP is running.
             -------------------------------------------------------------------
             vim.g.rustaceanvim = {
                 -- Plugin configuration
                 tools = {
                 },
                 server = {
-                    on_attach = function(_, bufnr)
+                    on_attach = function(client, bufnr)
                         -- Hover.
                         vim.keymap.set('n', 'K', function() vim.cmd.RustLsp { 'hover', 'actions' } end,
                             { buffer = bufnr })
@@ -225,6 +225,34 @@ return {
                         -- Rename.
                         vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end,
                             { buffer = bufnr })
+
+                        -- Attach and configure vim-illuminate
+                        require("illuminate").on_attach(client)
+
+                        -- Setup completion on command line
+                        local cmp = require("cmp")
+                        -- `/` cmdline setup.
+                        cmp.setup.cmdline("/", {
+                            mapping = cmp.mapping.preset.cmdline(),
+                            sources = {
+                                { name = "buffer" },
+                            },
+                        })
+
+                        -- `:` cmdline setup.
+                        cmp.setup.cmdline(":", {
+                            mapping = cmp.mapping.preset.cmdline(),
+                            sources = cmp.config.sources({
+                                { name = "path" },
+                            }, {
+                                {
+                                    name = "cmdline",
+                                    option = {
+                                        ignore_cmds = { "Man", "!" },
+                                    },
+                                },
+                            }),
+                        })
                     end,
                     default_settings = {
                         -- rust-analyzer language server configuration
