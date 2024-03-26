@@ -17,6 +17,8 @@ return {
                         i = {
                             ["<C-u>"] = false,
                             ["<C-d>"] = false,
+                            ["<C-j>"] = require("telescope.actions").move_selection_next,
+                            ["<C-k>"] = require("telescope.actions").move_selection_previous,
                         },
                     },
                 },
@@ -47,7 +49,7 @@ return {
 
             local map = require("helpers.keys").map
             map("n", "<leader>of", require("telescope.builtin").oldfiles, "Recently opened")
-            map('n', '<leader>f', require("telescope.builtin").find_files, {})
+            map('n', '<leader>ff', require("telescope.builtin").find_files, {})
             map("n", "<leader>b", require("telescope.builtin").buffers, "Open buffers")
             map("n", "<leader>/", function()
                 require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
@@ -55,6 +57,7 @@ return {
                     previewer = false,
                 }))
             end, "Search in current buffer")
+            map("n", "<leader>fs", require("telescope.builtin").lsp_document_symbols, { desc = "Find Symbols" })
 
             map(
                 "n",
@@ -68,10 +71,6 @@ return {
             map("n", "<leader>sw", require("telescope.builtin").grep_string, "Current word")
             map("n", "<leader>sg", require("telescope.builtin").live_grep, "Grep")
             map("n", "<leader>sd", require("telescope.builtin").diagnostics, "Diagnostics")
-
-            -- Map to use Meta key (Alt) instead of Ctrl. Duplicates the mapping of '<leader>f', but doesn't wait for chord eval to complete.
-            map("n", "<M-f>", require("telescope.builtin").find_files, "Files")
-            map("n", "<M-b>", require("telescope.builtin").buffers, "Open buffers")
         end,
     },
 }
