@@ -27,6 +27,9 @@ return {
                                 ["<C-d>"] = require("telescope.actions").delete_buffer,
                             }
                         }
+                    },
+                    find_files = {
+                        hidden = true
                     }
                 },
                 extensions = {
@@ -36,7 +39,8 @@ return {
                     },
                 },
             })
-            require("telescope").load_extension "file_browser"
+            require("telescope").load_extension("file_browser")
+            require("telescope").load_extension("noice")
 
             -- Enable telescope fzf native, if installed
             pcall(require("telescope").load_extension, "fzf")
