@@ -100,31 +100,6 @@ return {
 
                 -- Attach and configure vim-illuminate
                 require("illuminate").on_attach(client)
-
-                -- Setup completion on command line
-                local cmp = require("cmp")
-                -- `/` cmdline setup.
-                cmp.setup.cmdline("/", {
-                    mapping = cmp.mapping.preset.cmdline(),
-                    sources = {
-                        { name = "buffer" },
-                    },
-                })
-
-                -- `:` cmdline setup.
-                cmp.setup.cmdline(":", {
-                    mapping = cmp.mapping.preset.cmdline(),
-                    sources = cmp.config.sources({
-                        { name = "path" },
-                    }, {
-                        {
-                            name = "cmdline",
-                            option = {
-                                ignore_cmds = { "Man", "!" },
-                            },
-                        },
-                    }),
-                })
             end
 
 
@@ -228,31 +203,6 @@ return {
 
                         -- Attach and configure vim-illuminate
                         require("illuminate").on_attach(client)
-
-                        -- Setup completion on command line
-                        local cmp = require("cmp")
-                        -- `/` cmdline setup.
-                        cmp.setup.cmdline("/", {
-                            mapping = cmp.mapping.preset.cmdline(),
-                            sources = {
-                                { name = "buffer" },
-                            },
-                        })
-
-                        -- `:` cmdline setup.
-                        cmp.setup.cmdline(":", {
-                            mapping = cmp.mapping.preset.cmdline(),
-                            sources = cmp.config.sources({
-                                { name = "path" },
-                            }, {
-                                {
-                                    name = "cmdline",
-                                    option = {
-                                        ignore_cmds = { "Man", "!" },
-                                    },
-                                },
-                            }),
-                        })
                     end,
                     default_settings = {
                         -- rust-analyzer language server configuration
