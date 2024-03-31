@@ -49,7 +49,7 @@ return {
 
             local map = require("helpers.keys").map
             map("n", "<leader>of", require("telescope.builtin").oldfiles, "Recently opened")
-            map('n', '<leader>ff', require("telescope.builtin").find_files, {})
+            map('n', '<leader>ff', require("telescope.builtin").find_files, "Find files")
             map("n", "<leader>b", require("telescope.builtin").buffers, "Open buffers")
             map("n", "<leader>/", function()
                 require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
@@ -57,12 +57,12 @@ return {
                     previewer = false,
                 }))
             end, "Search in current buffer")
-            map("n", "<leader>fs", require("telescope.builtin").lsp_document_symbols, { desc = "Find Symbols" })
+            map("n", "<leader>fs", require("telescope.builtin").lsp_document_symbols, "Find Symbols")
 
             map(
                 "n",
                 "<space>fb",
-                ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+                "File browser",
                 { noremap = true }
             )
 
