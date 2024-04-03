@@ -59,12 +59,7 @@ return {
             end, "Search in current buffer")
             map("n", "<leader>fs", require("telescope.builtin").lsp_document_symbols, "Find Symbols")
 
-            map(
-                "n",
-                "<space>fb",
-                "File browser",
-                { noremap = true }
-            )
+            map("n", "<space>fb", ":Telescope file_browser<CR>", "File browser")
 
             map("n", "<leader>sk", require("telescope.builtin").keymaps, "Search keymaps")
             map("n", "<leader>sh", require("telescope.builtin").help_tags, "Help")
