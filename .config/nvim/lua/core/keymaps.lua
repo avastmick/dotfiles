@@ -41,12 +41,4 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- in-file search and replace
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- LOL!
-vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
-
--- Testing keymaps to use Option/Alt
-local function test()
-    print("test")
-end
-
-vim.keymap.set("n", "<M-r>", test)
+-- Copilot toggle

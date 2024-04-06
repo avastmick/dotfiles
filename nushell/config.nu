@@ -765,7 +765,7 @@ $env.config = {
 # My config
 #######################################################
 # Atuin integration
-source ~/.local/share/atuin/init.nu
+# source ~/.local/share/atuin/init.nu
 # Pretty prompt
 source ~/.cache/starship/init.nu
 
