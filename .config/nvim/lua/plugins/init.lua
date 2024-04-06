@@ -11,11 +11,7 @@ return {
     "mbbill/undotree",
 
     -- GitHub copilot integration.
-    {
-        "github/copilot.vim",
-        -- Turn off copilot by default.
-        vim.cmd(':Copilot disable')
-    },
+    "github/copilot.vim",
 
     -- Vim tutorials and games.
     "theprimeagen/vim-be-good",

@@ -26,6 +26,3 @@ non-requirements:
 - [X] Look at noice a command pop-up, rather than at the bottom (https://github.com/folke/noice.nvim)
 
 
-
-
-
