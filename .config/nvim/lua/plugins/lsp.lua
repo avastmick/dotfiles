@@ -183,23 +183,18 @@ return {
                 },
                 server = {
                     on_attach = function(client, bufnr)
-                        -- Hover.
-                        vim.keymap.set('n', 'K', function() vim.cmd.RustLsp { 'hover', 'actions' } end,
-                            { buffer = bufnr })
-                        -- Code Actions.
-                        vim.keymap.set("n", "<leader>la", function() vim.cmd.RustLsp { 'codeAction' } end,
-                            { buffer = bufnr })
+                        local lsp_map = require("helpers.keys").lsp_map
+                        lsp_map("<leader>lr", vim.lsp.buf.rename, bufnr, "Rename symbol")
+                        lsp_map("<leader>la", function() vim.cmd.RustLsp { 'codeAction' } end, bufnr, "Code action")
+                        lsp_map("<leader>ld", vim.lsp.buf.type_definition, bufnr, "Type definition")
+                        lsp_map("<leader>ls", require("telescope.builtin").lsp_document_symbols, bufnr,
+                            "Document symbols")
 
-                        -- Standard LSP mappings
-                        -- Goto definition
-                        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,
-                            { buffer = bufnr })
-                        -- Goto references
-                        vim.keymap.set("n", "gr", function() require("telescope.builtin").lsp_references() end,
-                            { buffer = bufnr })
-                        -- Rename.
-                        vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end,
-                            { buffer = bufnr })
+                        lsp_map("gd", vim.lsp.buf.definition, bufnr, "Goto Definition")
+                        lsp_map("gr", require("telescope.builtin").lsp_references, bufnr, "Goto References")
+                        lsp_map("gI", vim.lsp.buf.implementation, bufnr, "Goto Implementation")
+                        lsp_map("K", function() vim.cmd.RustLsp { 'hover', 'actions' } end, bufnr, "Hover Documentation")
+                        lsp_map("gD", vim.lsp.buf.declaration, bufnr, "Goto Declaration")
 
                         -- Attach and configure vim-illuminate
                         require("illuminate").on_attach(client)
