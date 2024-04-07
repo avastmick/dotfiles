@@ -7,7 +7,8 @@ return {
         "nvim-telescope/telescope.nvim", -- optional
     },
     config = function()
-        vim.keymap.set("n", "<leader>gs", vim.cmd.Neogit)
+        local map = require("helpers.keys").map
+        map("n", "<leader>gs", vim.cmd.Neogit, "Toggle git status in Neogit")
         local neogit = require("neogit")
         neogit.setup {
             -- Setup neogit with the options you want

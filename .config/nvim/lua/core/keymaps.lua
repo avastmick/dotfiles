@@ -3,42 +3,36 @@
 --
 -- The leader is set to space. Done in core/lazy.lua
 
--- Allows for moving selected line / block of text in visual mode.
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv")
+-- Help makes annotation of keymaps easier and consistent
+local map = require("helpers.keys").map
 
-vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+map("v", "J", ":m '>+1<CR>gv=gv", "Move visual selected block down with 'J'")
+map("v", "K", ":m '<-2<cr>gv=gv", "Move visual selected block down with 'K'")
+map("n", "J", "mzJ`z", "Joins two lines")
+map("n", "<C-d>", "<C-d>zz", "Move down the page with centered cursor")
+map("n", "<C-u>", "<C-u>zz", "Move up the page with centered cursor")
+map("n", "n", "nzzzv", "Next search item")
+map("n", "N", "Nzzzv", "Next previous item")
 
--- puts the current register, but does not overwrite, so you can repeatedly put multiple times with the same result.
-vim.keymap.set("x", "<leader>p", [["_dP]])
+map("x", "<leader>p", [["_dP]], "Puts without overwrite of current register")
 
--- yank to system clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+map({ "n", "v" }, "<leader>y", [["+y]], "yank to system clipboard")
+map("n", "<leader>Y", [["+Y]], "yank line to system clipboard")
 
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+map({ "n", "v" }, "<leader>d", [["_d]], "Delete to the blackhole register")
 
--- Map "jk" to <Esc>
-vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("t", "jk", [[<C-\><C-n>]])
+map("i", "jk", "<Esc>", "'jk' to <Esc>")
+map("t", "jk", [[<C-\><C-n>]], "'jk' to <Esc>")
 
--- Map "Q" to no operation (normally it's exit)
-vim.keymap.set("n", "Q", "<nop>")
--- Clear search highlighting
-vim.keymap.set("n", "<Esc>", function() vim.cmd("noh") end)
-vim.keymap.set("n", "<C-c>", function() vim.cmd("noh") end)
+map("n", "Q", "<nop>", "'Q' to no operation (normally it's exit)")
+--
+map("n", "<Esc>", function() vim.cmd("noh") end, "Clear search highlighting")
+map("n", "<C-c>", function() vim.cmd("noh") end, "Clear search highlighting")
 
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+map("n", "<C-k>", "<cmd>cnext<CR>zz", "Goto next error")
+map("n", "<C-j>", "<cmd>cprev<CR>zz", "Goto previous error")
+map("n", "<leader>k", "<cmd>lnext<CR>zz", "Goto next location")
+map("n", "<leader>j", "<cmd>lprev<CR>zz", "Goto previous location")
 
--- in-file search and replace
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Copilot toggle
+map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Search and replace on current word")

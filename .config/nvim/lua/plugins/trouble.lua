@@ -10,17 +10,18 @@ return {
                 padding = false,     -- Add padding to the list
             })
 
-            vim.keymap.set("n", "<leader>tt", function()
+            local map = require("helpers.keys").map
+            map("n", "<leader>tt", function()
                 require("trouble").toggle()
-            end)
+            end, "Toggle trouble pane")
 
-            vim.keymap.set("n", "[t", function()
+            map("n", "<leader>tn", function()
                 require("trouble").next({ skip_groups = true, jump = true });
-            end)
+            end, "Next trouble item")
 
-            vim.keymap.set("n", "]t", function()
+            map("n", "<leader>tp", function()
                 require("trouble").previous({ skip_groups = true, jump = true });
-            end)
+            end, "Previous trouble item")
         end
     },
 }

@@ -52,5 +52,8 @@ return {
             end,
         }
     },
-    vim.keymap.set("n", "<leader>zm", vim.cmd.ZenMode)
+    config = function()
+        local map = require("helpers.keys").map
+        map("n", "<leader>zm", vim.cmd.ZenMode, "Toggle zen-mode")
+    end
 }
