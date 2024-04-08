@@ -30,8 +30,8 @@ map("n", "<Esc>", function() vim.cmd("noh") end, "Clear search highlighting")
 map("n", "<C-c>", function() vim.cmd("noh") end, "Clear search highlighting")
 
 
-map("n", "<C-k>", "<cmd>cnext<CR>zz", "Goto next error")
-map("n", "<C-j>", "<cmd>cprev<CR>zz", "Goto previous error")
+map("n", "<C-k>", "<cmd>cnext<CR>zz", "Goto next quickfix item")
+map("n", "<C-j>", "<cmd>cprev<CR>zz", "Goto previous quickfix item")
 map("n", "<leader>k", "<cmd>lnext<CR>zz", "Goto next location")
 map("n", "<leader>j", "<cmd>lprev<CR>zz", "Goto previous location")
 
