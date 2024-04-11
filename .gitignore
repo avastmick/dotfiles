@@ -7,3 +7,5 @@
 /.config/zed/conversations/
 /.config/zed/tasks.json
 /.config/zed/.tmp*
+ 
+/.config/nvim/db_ui/**
