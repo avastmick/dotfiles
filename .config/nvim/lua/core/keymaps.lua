@@ -19,7 +19,7 @@ map("x", "<leader>p", [["_dP]], "Puts without overwrite of current register")
 map({ "n", "v" }, "<leader>y", [["+y]], "yank to system clipboard")
 map("n", "<leader>Y", [["+Y]], "yank line to system clipboard")
 
-map({ "n", "v" }, "<leader>d", [["_d]], "Delete to the blackhole register")
+-- map({ "n", "v" }, "<leader>d", [["_d]], "Delete to the blackhole register")
 
 map("i", "jk", "<Esc>", "'jk' to <Esc>")
 map("t", "jk", [[<C-\><C-n>]], "'jk' to <Esc>")

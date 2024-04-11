@@ -11,8 +11,12 @@ return {
         'DBUIFindBuffer',
     },
     init = function()
-        -- Your DBUI configuration
+        -- DBUI configuration
         vim.g.db_ui_use_nerd_fonts = 1
+        -- Attempt to config the notification panel to be transparent
+        -- vim.api.nvim_set_hl(0, 'NotificationInfo', { guifg = '#FFFFFF', guibg = 'NONE' })
+        -- vim.api.nvim_set_hl(0, 'NotificationWarning', { guifg = '#FFFFFF', guibg = '#000000' })
+        -- vim.api.nvim_set_hl(0, 'NotificationError', { guifg = '#FFFFFF', guibg = '#000000' })
     end,
     config = function()
         local function db_completion()
