@@ -49,26 +49,28 @@ return {
 
             local map = require("helpers.keys").map
 
-            map('n', '<leader>ff', require("telescope.builtin").find_files, "Fuzzy find files")
-            map("n", "<leader>fo", require("telescope.builtin").oldfiles, "Find (recently) opened files")
-            map("n", "<leader>fs", require("telescope.builtin").lsp_document_symbols, "Find Symbols in current buffer")
-            map("n", "<leader>fw", require("telescope.builtin").grep_string, "Find current word in project")
-            map("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-                "File browser opened in current directory path")
+            map('n', '<leader>f', require("telescope.builtin").find_files, "Fuzzy [ Find ] files")
+            map("n", "<leader>r", require("telescope.builtin").oldfiles, "Find [ Recently ] opened files")
+            map("n", "<leader>t", require("telescope.builtin").lsp_document_symbols,
+                "Find [ Types ] (symbols) in current buffer")
+            map("n", "<leader>w", require("telescope.builtin").grep_string, "Find current [ Word ] in project")
+            map("n", "<leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+                "File browser [ Explorer ] opened in current directory")
 
-            map("n", "<leader>b", require("telescope.builtin").buffers, "View open buffers")
+            map("n", "<leader>b", require("telescope.builtin").buffers, "View open [ Buffers ]")
             map("n", "<leader>/", function()
                 require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
                     winblend = 0,
                     previewer = false,
                 }))
-            end, "Search in current buffer")
+            end, "Search [ / ] in current buffer")
 
-            map("n", "<leader>sk", require("telescope.builtin").keymaps, "Search keymaps")
-            map("n", "<leader>sh", require("telescope.builtin").help_tags, "Search help")
-            map("n", "<leader>sg", require("telescope.builtin").live_grep, "Search with grep in current directory path")
+            map("n", "<leader>sk", require("telescope.builtin").keymaps, "Search [ Keymaps ]")
+            map("n", "<leader>sh", require("telescope.builtin").help_tags, "Search [ Help ]")
+            map("n", "<leader>sg", require("telescope.builtin").live_grep,
+                "Search with [ Grep ] in current directory path")
 
-            map("n", "<leader>d", require("telescope.builtin").diagnostics, "Search current project diagnostics")
+            map("n", "<leader>d", require("telescope.builtin").diagnostics, "Search current project [ Diagnostics ]")
         end,
     },
 }
