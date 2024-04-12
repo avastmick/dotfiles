@@ -67,7 +67,8 @@ return {
             map("n", "<leader>sk", require("telescope.builtin").keymaps, "Search keymaps")
             map("n", "<leader>sh", require("telescope.builtin").help_tags, "Search help")
             map("n", "<leader>sg", require("telescope.builtin").live_grep, "Search with grep in current directory path")
-            map("n", "<leader>sd", require("telescope.builtin").diagnostics, "Search current project diagnostics")
+
+            map("n", "<leader>d", require("telescope.builtin").diagnostics, "Search current project diagnostics")
         end,
     },
 }

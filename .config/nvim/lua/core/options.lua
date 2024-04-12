@@ -43,4 +43,4 @@ vim.cmd.colorscheme(colorscheme)
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- Turn off copilot by default.
-vim.cmd(':Copilot disable')
+-- vim.cmd(':Copilot disable')
