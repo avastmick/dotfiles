@@ -26,8 +26,11 @@ map("i", "jk", "<Esc>", "'jk' to <Esc>")
 map("t", "jk", [[<C-\><C-n>]], "'jk' to <Esc>")
 
 map("n", "Q", "<nop>", "'Q' to no operation (normally it's exit)")
---
+
 map("n", "<Esc>", function() vim.cmd("noh") end, "Clear search highlighting")
 map("n", "<C-c>", function() vim.cmd("noh") end, "Clear search highlighting")
 
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Search and replace on current word")
+
+map("n", "<leader>n", function() vim.diagnostic.goto_prev() end, "Goto [ N ]ext diagnostic location")
+map("n", "<leader>p", function() vim.diagnostic.goto_prev() end, "Goto [ P ]revious diagnostic location")
