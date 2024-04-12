@@ -34,12 +34,12 @@ return {
                 lualine_b = { {
                     'branch',
                     icon = '',
+                    'diagnostics',
                 } },
                 lualine_c = { {
                     'filename',
                     path = 1,
-                    symbols.get,
-                    cond = symbols.has,
+                    { symbols = { symbols.get, cond = symbols.has } },
                 } },
                 lualine_x = { "encoding", { "fileformat", symbols = { unix = os_icon } }, "filetype" },
                 lualine_y = { "progress" },
