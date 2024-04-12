@@ -12,7 +12,6 @@ return {
             os_icon = ""
         end
 
-        -- Trouble integration
         require("lualine").setup({
             options = {
                 icons_enabled = true,
