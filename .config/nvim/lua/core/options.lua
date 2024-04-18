@@ -2,7 +2,7 @@ local opts = {
     guicursor = "n:block,i:ver75-Cursor",
     scrolloff = 8,
     signcolumn = "yes",
-    updatetime = 50,
+    updatetime = 100,
     -- tabs
     shiftwidth = 4,
     tabstop = 4,
