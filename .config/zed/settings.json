@@ -4,7 +4,7 @@
 //
 {
   // UI settings
-  "theme": "Gruvbox Dark Soft",
+  "theme": "Catppuccin Frappé",
   "ui_font_size": 13,
   "experimental.theme_overrides": {
     "background.appearance": "transparent",
@@ -27,9 +27,13 @@
   "preferred_line_length": 180,
   "soft_wrap": "preferred_line_length",
   "buffer_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_size": 11.5,
+  "buffer_font_size": 12,
   "buffer_font_features": {
     "liga": true
+  },
+  "line_indicator_format": "short",
+  "tab_bar": {
+    "show_nav_history_buttons": false
   },
   "cursor_blink": false,
   "inlay_hints": {
