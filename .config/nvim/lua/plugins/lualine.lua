@@ -5,7 +5,7 @@ return {
     config = function()
         local colorscheme = require("helpers.colorscheme")
         local lualine_theme = colorscheme == "default" and "auto" or colorscheme
-        -- Silly, but I like it
+
         local os_icon
         if vim.fn.has("macunix") then
             os_icon = ""
@@ -18,7 +18,7 @@ return {
                 icons_enabled = true,
                 theme = lualine_theme,
                 component_separators = ' ',
-                section_separators = ' ',
+                section_separators = { left = "", right = "" },
             },
             sections = {
                 lualine_a = { 'mode' },
@@ -27,7 +27,7 @@ return {
                         'filename',
                         path = 1,
                         symbols = {
-                            modified = '',
+                            modified = '●',
                             alternate_file = '#',
                             directory = '',
                         },
