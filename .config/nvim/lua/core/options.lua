@@ -29,6 +29,21 @@ local opts = {
 for opt, val in pairs(opts) do
     vim.o[opt] = val
 end
+-- Automatically executed commands for entering and leaving insert mode
+vim.api.nvim_create_autocmd("InsertEnter", {
+    pattern = "*",
+    callback = function()
+        vim.opt.relativenumber = false
+    end
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+    pattern = "*",
+    callback = function()
+        vim.opt.relativenumber = true
+    end
+})
+
 
 -- Configure Netrw
 vim.g.netrw_banner = 0    -- Disables the Netrw banner. Press 'I' to toggle.
