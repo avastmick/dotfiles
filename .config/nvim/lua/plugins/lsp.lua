@@ -191,6 +191,8 @@ return {
                         lsp_map("<leader>ls", require("telescope.builtin").lsp_document_symbols, bufnr,
                             "Document symbols")
 
+                        lsp_map("<leader>F", "<cmd>Format<cr>", bufnr, "Format")
+
                         lsp_map("K", function() vim.cmd.RustLsp { 'hover', 'actions' } end, bufnr, "Hover Documentation")
                         lsp_map("gd", vim.lsp.buf.definition, bufnr, "Goto Definition")
                         lsp_map("gr", require("telescope.builtin").lsp_references, bufnr, "Goto References")
