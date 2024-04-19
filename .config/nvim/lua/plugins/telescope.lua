@@ -71,6 +71,9 @@ return {
                 "Search with [ Grep ] in current directory path")
 
             map("n", "<leader>d", require("telescope.builtin").diagnostics, "Search current project [ Diagnostics ]")
+
+            -- Set line numbers on the preview panel
+            vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
         end,
     },
 }
