@@ -3,46 +3,39 @@ local opts = {
     scrolloff = 8,
     signcolumn = "yes",
     updatetime = 100,
+
     -- tabs
     shiftwidth = 4,
     tabstop = 4,
     expandtab = true,
     smartindent = true,
+
     -- wrap
     wrap = true,
+    linebreak = true,
+    breakindent = true,
+
     -- colours
     termguicolors = true,
+
     -- line numbering
     nu = true,
     relativenumber = true,
     cursorline = true,
+
     -- showmode off as using lua-line
     showmode = false,
+
     -- swap /undo
     swapfile = false,
     backup = false,
     undodir = os.getenv("HOME") .. "/.vim/undodir",
     undofile = true,
 }
-
 -- Set options from table
 for opt, val in pairs(opts) do
     vim.o[opt] = val
 end
--- Automatically executed commands for entering and leaving insert mode
-vim.api.nvim_create_autocmd("InsertEnter", {
-    pattern = "*",
-    callback = function()
-        vim.opt.relativenumber = false
-    end
-})
-
-vim.api.nvim_create_autocmd("InsertLeave", {
-    pattern = "*",
-    callback = function()
-        vim.opt.relativenumber = true
-    end
-})
 
 
 -- Configure Netrw
