@@ -22,6 +22,14 @@ non-requirements:
 ## TODO:
 
 - [ ] Add `nushell` support. Maybe remove and revert to using `zsh`.
-- [X] Look at noice a command pop-up, rather than at the bottom (https://github.com/folke/noice.nvim)
+- [ ] Look at a better way to view the project structure. The tree model is common, is it best.
+- [ ] Remove Telescope File Browser, as Oil is better.
 
+# Working on my keyboard skills.
 
+Okay, let's write some prose.
+
+let some_variable = match {
+some_function;
+some_other_variable;
+}
