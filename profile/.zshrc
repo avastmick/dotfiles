@@ -9,7 +9,7 @@
 HISTSIZE= HISTFILESIZE= # Infinite history.
 
 # Set the system editor
-export EDITOR='vim'
+export EDITOR='nvim'
 # Set a consistent TERM (tmux vs vim)
 export TERM="xterm-256color"
 # make sure man is pretty and readable
@@ -22,6 +22,7 @@ export SSH_AUTH_SOCK=/Users/avastmick/Library/Containers/com.maxgoedjen.Secretiv
 ###############################################################################
 # aliases
 ###############################################################################
+[ -f $HOME/.zsh_aliases ] && source $HOME/.zsh_aliases
 
 ###############################################################################
 # completions
