@@ -33,3 +33,10 @@ let some_variable = match {
 some_function;
 some_other_variable;
 }
+
+let Some(people) = match {
+    // comment
+    inner_code;
+    more_code;
+}
+

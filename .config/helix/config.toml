@@ -2,7 +2,12 @@ theme = "catppuccin_macchiato_trans"
 
 [editor]
 line-number = "relative"
-# mouse = false
+scrolloff = 8
+
+# Formatting formally on save
+auto-format = true
+
+mouse = false
 
 [editor.cursor-shape]
 insert = "bar"
@@ -12,6 +17,27 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
+[editor.gutters.line-numbers]
+# No neck/should pain on wide screens
+min-width = 58
+
+# Status line - TODO make this more attractive and transparent.
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+center = ["workspace-diagnostics", "diagnostics"]
+right = [
+  "selections",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+]
+
+separator = "│"
+
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 # -------------------------------- Vim-like keybindings --------------------------------
 [keys.insert.j]
@@ -21,6 +47,10 @@ k = "normal_mode" # Maps `jk` to exit insert mode
 # Quick iteration on config changes
 C-o = ":config-open"
 C-r = ":config-reload"
+
+# Toggle off the wide screen handling
+[keys.normal.space]
+z = ":toggle gutters.line-numbers.min-width 58 3"
 
 # Some nice Helix stuff
 C-h = "select_prev_sibling"

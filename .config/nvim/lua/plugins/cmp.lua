@@ -74,6 +74,7 @@ return {
                             luasnip = "[Snippet]",
                             buffer = "[Buffer]",
                             path = "[Path]",
+                            cmdline = "[Command]",
                         })[entry.source.name]
                         return vim_item
                     end,
@@ -84,6 +85,7 @@ return {
                     { name = "luasnip" },
                     { name = "buffer" },
                     { name = "path" },
+                    { name = "cmdline" },
                 },
 
 
@@ -99,18 +101,16 @@ return {
             })
 
             -- `:` cmdline setup.
-            cmp.setup.cmdline(":", {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = "path" },
-                }, {
-                    {
-                        name = "cmdline",
-                        option = {
-                            ignore_cmds = { "Man", "!" },
-                        },
-                    },
+            cmp.setup.cmdline(':', {
+                mapping = cmp.mapping.preset.cmdline({
+                    ['<Down>'] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
+                    ['<Up>'] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
                 }),
+                sources = cmp.config.sources({
+                    { name = 'cmdline' }
+                }, {
+                    { name = 'path' }
+                })
             })
         end,
     },
