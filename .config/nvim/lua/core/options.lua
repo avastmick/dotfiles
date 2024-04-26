@@ -52,3 +52,13 @@ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- Turn off copilot by default.
 vim.cmd(':Copilot disable')
+
+-- Set the conceal line for markdown
+vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("wrap_spell", { clear = true }),
+    pattern = { "gitcommit", "markdown" },
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.conceallevel = 2
+    end,
+})
