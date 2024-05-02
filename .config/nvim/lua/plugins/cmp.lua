@@ -44,7 +44,7 @@ return {
                 TypeParameter = "",
                 Unit = "",
                 Value = "",
-                Variable = "󰫧",
+                Variable = "",
             }
 
             cmp.setup({
@@ -73,8 +73,6 @@ return {
                             nvim_lsp = "[LSP]",
                             luasnip = "[Snippet]",
                             buffer = "[Buffer]",
-                            path = "[Path]",
-                            cmdline = "[Command]",
                         })[entry.source.name]
                         return vim_item
                     end,
@@ -85,12 +83,12 @@ return {
                     { name = "luasnip" },
                     { name = "buffer" },
                     { name = "path" },
-                    { name = "cmdline" },
+                    -- { name = "cmdline" }, -- Don't put this here, as it causes issues.
                 },
 
 
             })
-            --
+
             -- Setup completion on command line
             -- `/` cmdline setup.
             cmp.setup.cmdline("/", {
