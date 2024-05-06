@@ -769,6 +769,9 @@ $env.config = {
 # Pretty prompt
 source ~/.cache/starship/init.nu
 
+# Zoxide
+source ~/.zoxide.nu
+
 ###############################################################################
 #
 # Custom aliases

@@ -37,3 +37,6 @@ export PATH=$PATH:/Users/avastmick/.git-semantic-commits:$PATH
 # prompt
 ###############################################################################
 eval "$(starship init zsh)"
+
+# Zoxide
+eval "$(zoxide init zsh)"
