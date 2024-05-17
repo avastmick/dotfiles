@@ -4,9 +4,6 @@ return {
         name = "plenary"
     },
 
-    -- Commenting things out.
-    "tpope/vim-commentary",
-
     -- Undo tree.
     "mbbill/undotree",
 

@@ -17,14 +17,6 @@ end
 
 -- Uncomment the colorscheme to use
 
--- Gruvbox
--- local colorscheme = get_if_available('gruvbox', {
---     terminal_colors = true, -- add neovim terminal colors
---     transparent_mode = true,
---     dim_inactive = false,
---     contrast = "soft", -- can be "hard", "soft" or empty string
--- })
-
 -- Catppuccin
 local colorscheme = get_if_available('catppuccin', {
     --                             -- light ----------------> dark
