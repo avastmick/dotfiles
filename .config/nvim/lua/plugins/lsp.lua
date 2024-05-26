@@ -88,7 +88,6 @@ return {
                 lsp_map("gd", vim.lsp.buf.definition, bufnr, "Goto Definition")
                 lsp_map("gr", require("telescope.builtin").lsp_references, bufnr, "Goto References")
                 lsp_map("gI", vim.lsp.buf.implementation, bufnr, "Goto Implementation")
-                lsp_map("K", vim.lsp.buf.hover, bufnr, "Hover Documentation")
                 lsp_map("gD", vim.lsp.buf.declaration, bufnr, "Goto Declaration")
 
                 -- Create a command `:Format` local to the LSP buffer
@@ -178,11 +177,34 @@ return {
             -- Rust specific config - only runs when Rust LSP is running.
             -------------------------------------------------------------------
             vim.g.rustaceanvim = {
+
                 -- Plugin configuration
                 tools = {
+                    -- Configure hover pane
+                    hover_actions = {
+                        -- the border that is used for the hover window
+                        -- see vim.api.nvim_open_win()
+                        border = {
+                            { "╭", "FloatBorder" },
+                            { "─", "FloatBorder" },
+                            { "╮", "FloatBorder" },
+                            { "│", "FloatBorder" },
+                            { "╯", "FloatBorder" },
+                            { "─", "FloatBorder" },
+                            { "╰", "FloatBorder" },
+                            { "│", "FloatBorder" },
+                        },
+                        -- Maximal width of the hover window. Nil means no max.
+                        max_width = nil,
+                        -- Maximal height of the hover window. Nil means no max.
+                        max_height = nil,
+                        -- whether the hover action window gets automatically focused
+                        -- default: false
+                        auto_focus = false,
+                    },
                 },
                 server = {
-                    on_attach = function(client, bufnr)
+                    on_attach = function(_, bufnr)
                         local lsp_map = require("helpers.keys").lsp_map
 
                         lsp_map("<leader>la", function() vim.cmd.RustLsp { 'codeAction' } end, bufnr, "Code action")
@@ -198,9 +220,6 @@ return {
                         lsp_map("gr", require("telescope.builtin").lsp_references, bufnr, "Goto References")
                         lsp_map("gI", vim.lsp.buf.implementation, bufnr, "Goto Implementation")
                         lsp_map("gD", vim.lsp.buf.declaration, bufnr, "Goto Declaration")
-
-                        -- Attach and configure vim-illuminate
-                        require("illuminate").on_attach(client)
                     end,
                     default_settings = {
                         -- rust-analyzer language server configuration

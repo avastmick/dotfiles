@@ -19,6 +19,9 @@ return {
                     }
                 },
             },
+            presets = {
+                lsp_doc_border = true, -- Default is false, which leads to no border on LSP hover
+            },
             lsp = {
                 -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
                 override = {

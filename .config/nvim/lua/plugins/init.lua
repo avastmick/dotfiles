@@ -18,5 +18,5 @@ return {
     --     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     --     opts = {}
     -- },
-    "theprimeagen/vim-be-good",
+    -- "theprimeagen/vim-be-good",
 }
