@@ -172,7 +172,7 @@ return {
                     },
                 },
             })
-
+            ---
             -------------------------------------------------------------------
             -- Rust specific config - only runs when Rust LSP is running.
             -------------------------------------------------------------------
@@ -180,10 +180,8 @@ return {
 
                 -- Plugin configuration
                 tools = {
-                    -- Configure hover pane
-                    hover_actions = {
-                        -- the border that is used for the hover window
-                        -- see vim.api.nvim_open_win()
+                    -- Configure hover panes
+                    float_win_config = {
                         border = {
                             { "╭", "FloatBorder" },
                             { "─", "FloatBorder" },
@@ -194,12 +192,8 @@ return {
                             { "╰", "FloatBorder" },
                             { "│", "FloatBorder" },
                         },
-                        -- Maximal width of the hover window. Nil means no max.
                         max_width = nil,
-                        -- Maximal height of the hover window. Nil means no max.
                         max_height = nil,
-                        -- whether the hover action window gets automatically focused
-                        -- default: false
                         auto_focus = false,
                     },
                 },
@@ -207,7 +201,8 @@ return {
                     on_attach = function(_, bufnr)
                         local lsp_map = require("helpers.keys").lsp_map
 
-                        lsp_map("<leader>la", function() vim.cmd.RustLsp { 'codeAction' } end, bufnr, "Code action")
+                        lsp_map("<leader>la", function() vim.cmd.RustLsp { 'codeAction' } end, bufnr,
+                            "(Rust) Code action")
                         lsp_map("<leader>lr", vim.lsp.buf.rename, bufnr, "Rename symbol")
                         lsp_map("<leader>ld", vim.lsp.buf.type_definition, bufnr, "Type definition")
                         lsp_map("<leader>ls", require("telescope.builtin").lsp_document_symbols, bufnr,
@@ -215,7 +210,8 @@ return {
 
                         lsp_map("<leader>F", "<cmd>Format<cr>", bufnr, "Format")
 
-                        lsp_map("K", function() vim.cmd.RustLsp { 'hover', 'actions' } end, bufnr, "Hover Documentation")
+                        lsp_map("K", function() vim.cmd.RustLsp { 'hover', 'actions' } end, bufnr,
+                            "(Rust) Hover documentation")
                         lsp_map("gd", vim.lsp.buf.definition, bufnr, "Goto Definition")
                         lsp_map("gr", require("telescope.builtin").lsp_references, bufnr, "Goto References")
                         lsp_map("gI", vim.lsp.buf.implementation, bufnr, "Goto Implementation")
