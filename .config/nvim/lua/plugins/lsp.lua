@@ -212,7 +212,7 @@ return {
 
                         lsp_map("K", function() vim.cmd.RustLsp { 'hover', 'actions' } end, bufnr,
                             "(Rust) Hover documentation")
-                        lsp_map("gd", vim.lsp.buf.definition, bufnr, "Goto Definition")
+                        lsp_map("gd", require("telescope.builtin").lsp_definitions, bufnr, "Goto Definition")
                         lsp_map("gr", require("telescope.builtin").lsp_references, bufnr, "Goto References")
                         lsp_map("gI", vim.lsp.buf.implementation, bufnr, "Goto Implementation")
                         lsp_map("gD", vim.lsp.buf.declaration, bufnr, "Goto Declaration")
