@@ -10,6 +10,9 @@ return {
     -- GitHub copilot integration.
     "github/copilot.vim",
 
+    -- Extended surround handling
+    { 'echasnovski/mini.ai', version = false },
+
     -- Vim tutorials
     -- I like the idea of hardtime, but right now the new keyboard and
     -- trying to fix my awful typing is enough new to learn. Add back later.
