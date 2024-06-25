@@ -2,7 +2,7 @@
 
 format = """
 [╭─ ]\
-(color_green)\
+(green)\
 $os\
 $username\
 [](bg:color_bg1 fg:color_green)\
@@ -43,7 +43,7 @@ format = '$time '
 
 # Configure the number of directories to truncate in the current path
 [directory]
-truncation_length = 4
+truncation_length = 5
 truncate_to_repo = true
 truncation_symbol = "…/"
 # Catppuccin 'lavender'
@@ -78,7 +78,7 @@ Debian = "󰣚"
 
 [username]
 show_always = true
-style_user = "bg:color_bg3 fg:color_fg0"
+style_user = "green"
 style_root = "bg:color_bg3 fg:color_fg0"
 format = '[ $user ]($style)'
 
