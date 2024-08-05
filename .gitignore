@@ -4,6 +4,7 @@
 .DS_Store
 
 /.config/zed/embeddings/
+/.config/zed/prompts/
 /.config/zed/conversations/
 /.config/zed/tasks.json
 /.config/zed/.tmp*

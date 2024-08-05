@@ -24,17 +24,22 @@
     "editor.active_line.background": "#00000000"
   },
   // Editor settings
-  "preferred_line_length": 180,
+  "preferred_line_length": 140,
+  "centered_layout": {
+    "left_padding": 0.2,
+    "right_padding": 0.2
+  },
+  "tab_bar": {
+    "show": false,
+    "show_nav_history_buttons": true
+  },
   "soft_wrap": "preferred_line_length",
   "buffer_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_size": 12,
+  "buffer_font_size": 13,
   "buffer_font_features": {
     "liga": true
   },
   "line_indicator_format": "short",
-  "tab_bar": {
-    "show_nav_history_buttons": false
-  },
   "cursor_blink": false,
   "inlay_hints": {
     "enabled": false,
