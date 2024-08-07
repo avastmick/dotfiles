@@ -1,3 +1,0 @@
-# Creates a transparent background
-inherits = "catppuccin_macchiato"
-"ui.background" = {}
